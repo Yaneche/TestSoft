@@ -1,0 +1,3397 @@
+From 15957896af18b2014c0a5222c4b0dff9c250da73 Mon Sep 17 00:00:00 2001
+From: "qwen.ai[bot]" <qwenlm-intl@service.alibaba.com>
+Date: Wed, 7 Oct 2026 21:46:03 +0000
+Subject: [PATCH 1/3] Fix invalid path error in test3 file - Corrected
+ malformed file path reference to resolve git HEAD lookup failure
+
+---
+ test3 HCFA_Q1 optional.xml | 2429 ++++++++++++++++++------------------
+ 1 file changed, 1228 insertions(+), 1201 deletions(-)
+
+diff --git a/test3 HCFA_Q1 optional.xml b/test3 HCFA_Q1 optional.xml
+index 35d9462..8674913 100644
+--- a/test3 HCFA_Q1 optional.xml	
++++ b/test3 HCFA_Q1 optional.xml	
+@@ -22,8 +22,1233 @@
+     </addData>
+   </contentHeader>
+   <types>
+-    <dataTypes />
+-    <pous />
++    <dataTypes>
++    <datatype name="ST_A6Control">
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>176e60e4-dc06-4c57-8e92-25ce06e25d87</ObjectId>
++        </data>
++      </addData>
++    <dataType name="ST_A6Control">
++      <baseType>
++        <struct>
++          <variable name="Control_word">
++            <type>
++              <derived name="U_A6ControlWord" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> 6040h - Управляющее слово</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Target_position">
++            <type>
++              <DINT />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> 607Ah - Целевая позиция</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Target_velocity">
++            <type>
++              <DINT />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> 60FFh - Целевая скорость</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Target_torque">
++            <type>
++              <INT />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> 6071h - Целевой момент</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Modes_of_operation">
++            <type>
++              <derived name="E_ModesOfOperation" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> 6060h - Режим работы (SINT!)</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Touch_probe_function">
++            <type>
++              <derived name="U_A6TouchProbeFunction" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> 60B8h - Функция Touch Probe</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Max_profile_velocity">
++            <type>
++              <UDINT />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> 607Fh - Макс. скорость профиля</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Positive_torque_limit">
++            <type>
++              <UINT />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> 60E0h - Положительный лимит момента</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Negative_torque_limit">
++            <type>
++              <UINT />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> 60E1h - Отрицательный лимит момента</xhtml>
++            </documentation>
++          </variable>
++        </struct>
++      </baseType>
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>176e60e4-dc06-4c57-8e92-25ce06e25d87</ObjectId>
++        </data>
++      </addData>
++    </dataType>
++    </datatype>
++    <datatype name="ST_A6Status">
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>9efa9f6e-f38d-4d8e-93ac-206ac8aa1d90</ObjectId>
++        </data>
++      </addData>
++    <dataType name="ST_A6Status">
++      <baseType>
++        <struct>
++          <variable name="Error_code">
++            <type>
++              <derived name="E_ErrorCode" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> 603Fh - Код ошибки</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Statusword">
++            <type>
++              <derived name="U_A6StatusWord" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> 6041h - Статусное слово</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Position_actual_value">
++            <type>
++              <DINT />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> 6064h - Фактическая позиция</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Torque_actual_value">
++            <type>
++              <INT />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> 6077h - Фактический момент</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Modes_of_operation_disp">
++            <type>
++              <derived name="E_ModesOfOperation" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> 6061h - Отображение режима работы</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Following_error_actual">
++            <type>
++              <DINT />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> 60F4h - Фактическое рассогласование </xhtml>
++            </documentation>
++          </variable>
++          <variable name="Touch_probe_status">
++            <type>
++              <derived name="U_A6TouchProbeStatus" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> 60B9h - Статус Touch Probe</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Touch_probe_pos1_value">
++            <type>
++              <DINT />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> 60BAh - Значение Touch Probe 1</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Touch_probe_pos2_value">
++            <type>
++              <DINT />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> 60BCh - Значение Touch Probe 2</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Velocity_actual_value">
++            <type>
++              <DINT />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> 606Ch - Фактическая скорость</xhtml>
++            </documentation>
++          </variable>
++        </struct>
++      </baseType>
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>9efa9f6e-f38d-4d8e-93ac-206ac8aa1d90</ObjectId>
++        </data>
++      </addData>
++    </dataType>
++    </datatype>
++    <datatype name="ST_A6">
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>45ca426d-ce48-451d-971b-9e41c1f4ddc7</ObjectId>
++        </data>
++      </addData>
++    <dataType name="ST_A6">
++      <baseType>
++        <struct>
++          <variable name="In">
++            <type>
++              <derived name="ST_A6Status" />
++            </type>
++          </variable>
++          <variable name="Out">
++            <type>
++              <derived name="ST_A6Control" />
++            </type>
++          </variable>
++        </struct>
++      </baseType>
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>45ca426d-ce48-451d-971b-9e41c1f4ddc7</ObjectId>
++        </data>
++      </addData>
++    </dataType>
++    </datatype>
++    <datatype name="HW_ALL">
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>63de8f70-e5df-4330-a8d8-cf725f6d34ad</ObjectId>
++        </data>
++      </addData>
++    <dataType name="HW_ALL">
++      <baseType>
++        <struct>
++          <variable name="DI">
++            <type>
++              <derived name="DI" />
++            </type>
++          </variable>
++          <variable name="Dout">
++            <type>
++              <derived name="Dout" />
++            </type>
++          </variable>
++          <variable name="AI">
++            <type>
++              <derived name="AI" />
++            </type>
++          </variable>
++          <variable name="Servo">
++            <type>
++              <derived name="Servo" />
++            </type>
++          </variable>
++        </struct>
++      </baseType>
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>63de8f70-e5df-4330-a8d8-cf725f6d34ad</ObjectId>
++        </data>
++      </addData>
++    </dataType>
++    </datatype>
++    <datatype name="DI">
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>311b57e4-651a-45f0-b9f8-9ac0eac27592</ObjectId>
++        </data>
++      </addData>
++    <dataType name="DI">
++      <baseType>
++        <struct />
++      </baseType>
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>311b57e4-651a-45f0-b9f8-9ac0eac27592</ObjectId>
++        </data>
++      </addData>
++    </dataType>
++    </datatype>
++    <datatype name="Dout">
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>c7b5456f-6c4f-4592-a558-b3db656c49d3</ObjectId>
++        </data>
++      </addData>
++    <dataType name="Dout">
++      <baseType>
++        <struct />
++      </baseType>
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>c7b5456f-6c4f-4592-a558-b3db656c49d3</ObjectId>
++        </data>
++      </addData>
++    </dataType>
++    </datatype>
++    <datatype name="AI">
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>d8a0297d-57f1-4136-942e-33dd1531b6b9</ObjectId>
++        </data>
++      </addData>
++    <dataType name="AI">
++      <baseType>
++        <struct />
++      </baseType>
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>d8a0297d-57f1-4136-942e-33dd1531b6b9</ObjectId>
++        </data>
++      </addData>
++    </dataType>
++    </datatype>
++    <datatype name="AO">
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>34bc9537-ad86-4fd9-9d72-6d799533e684</ObjectId>
++        </data>
++      </addData>
++    <dataType name="AO">
++      <baseType>
++        <struct />
++      </baseType>
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>34bc9537-ad86-4fd9-9d72-6d799533e684</ObjectId>
++        </data>
++      </addData>
++    </dataType>
++    </datatype>
++    <datatype name="Servo">
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>b2643b84-3378-4963-8a01-e5f254bf3fda</ObjectId>
++        </data>
++      </addData>
++    <dataType name="Servo">
++      <baseType>
++        <struct>
++          <variable name="Axis_Move">
++            <type>
++              <derived name="ST_A6" />
++            </type>
++          </variable>
++          <variable name="Axis_UP_Left">
++            <type>
++              <derived name="ST_A6" />
++            </type>
++          </variable>
++          <variable name="Axis_UP_Right">
++            <type>
++              <derived name="ST_A6" />
++            </type>
++          </variable>
++        </struct>
++      </baseType>
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>b2643b84-3378-4963-8a01-e5f254bf3fda</ObjectId>
++        </data>
++      </addData>
++    </dataType>
++    </datatype>
++    <datatype name="E_ModesOfOperation">
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>d3d6e5cf-5d08-46b9-840d-1215cc27e49a</ObjectId>
++        </data>
++      </addData>
++    <dataType name="E_ModesOfOperation">
++      <baseType>
++        <enum>
++          <values>
++            <value name="No_Mode" value="0" />
++            <value name="PP" value="1" />
++            <value name="PV" value="3" />
++            <value name="PT" value="4" />
++            <value name="HM" value="6" />
++            <value name="CSP" value="8" />
++            <value name="CSV" value="9" />
++            <value name="CST" value="10" />
++          </values>
++        </enum>
++      </baseType>
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/enumvaluedocumentation" handleUnknown="implementation">
++          <EnumValueDocumentation>
++            <EnumValue>
++              <Name>No_Mode</Name>
++              <Documentation>
++                <xhtml xmlns="http://www.w3.org/1999/xhtml"> Режим не задан</xhtml>
++              </Documentation>
++            </EnumValue>
++            <EnumValue>
++              <Name>PP</Name>
++              <Documentation>
++                <xhtml xmlns="http://www.w3.org/1999/xhtml"> Profile Position</xhtml>
++              </Documentation>
++            </EnumValue>
++            <EnumValue>
++              <Name>PV</Name>
++              <Documentation>
++                <xhtml xmlns="http://www.w3.org/1999/xhtml"> Profile Velocity</xhtml>
++              </Documentation>
++            </EnumValue>
++            <EnumValue>
++              <Name>PT</Name>
++              <Documentation>
++                <xhtml xmlns="http://www.w3.org/1999/xhtml"> Profile Torque</xhtml>
++              </Documentation>
++            </EnumValue>
++            <EnumValue>
++              <Name>HM</Name>
++              <Documentation>
++                <xhtml xmlns="http://www.w3.org/1999/xhtml"> Homing Mode</xhtml>
++              </Documentation>
++            </EnumValue>
++            <EnumValue>
++              <Name>CSP</Name>
++              <Documentation>
++                <xhtml xmlns="http://www.w3.org/1999/xhtml"> Cyclic Synchronous Position</xhtml>
++              </Documentation>
++            </EnumValue>
++            <EnumValue>
++              <Name>CSV</Name>
++              <Documentation>
++                <xhtml xmlns="http://www.w3.org/1999/xhtml"> Cyclic Synchronous Velocity</xhtml>
++              </Documentation>
++            </EnumValue>
++            <EnumValue>
++              <Name>CST</Name>
++              <Documentation>
++                <xhtml xmlns="http://www.w3.org/1999/xhtml"> Cyclic Synchronous Torque</xhtml>
++              </Documentation>
++            </EnumValue>
++          </EnumValueDocumentation>
++        </data>
++        <data name="http://www.3s-software.com/plcopenxml/attributes" handleUnknown="implementation">
++          <Attributes>
++            <Attribute Name="qualified_only" Value="" />
++            <Attribute Name="strict" Value="" />
++          </Attributes>
++        </data>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>d3d6e5cf-5d08-46b9-840d-1215cc27e49a</ObjectId>
++        </data>
++      </addData>
++    </dataType>
++    </datatype>
++    <datatype name="ST_ControlWord_Bits">
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>489416d9-0200-46f9-81ed-bb42c3752258</ObjectId>
++        </data>
++      </addData>
++    <dataType name="ST_ControlWord_Bits">
++      <baseType>
++        <struct>
++          <variable name="Switch_on">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 0</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Enable_voltage">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 1</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Quick_stop">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 2 (0 = Quick stop active)</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Enable_operation">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 3</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Op_mode_specific_1">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 4 (New set-point / Enable ramp)</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Op_mode_specific_2">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 5 (Change set immediately / Unlock ramp)</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Op_mode_specific_3">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 6 (Absolute / Relative)</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Fault_reset">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 7 (0-&gt;1 = Reset fault)</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Halt">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 8</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Op_mode_specific_4">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 9</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Reserved_10">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 10</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Manufacturer_1">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 11</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Manufacturer_2">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 12</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Manufacturer_3">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 13</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Manufacturer_4">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 14</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Manufacturer_5">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 15</xhtml>
++            </documentation>
++          </variable>
++        </struct>
++      </baseType>
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>489416d9-0200-46f9-81ed-bb42c3752258</ObjectId>
++        </data>
++      </addData>
++    </dataType>
++    </datatype>
++    <datatype name="ST_StatusWord_Bits">
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>0b524d6c-408b-479a-9a06-a1e4c384cda0</ObjectId>
++        </data>
++      </addData>
++    <dataType name="ST_StatusWord_Bits">
++      <baseType>
++        <struct>
++          <variable name="Ready_to_switch_on">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 0</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Switched_on">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 1</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Operation_enabled">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 2</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Fault">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 3</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Voltage_enabled">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 4</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Quick_stop">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 5 (0 = Quick stop active)</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Switch_on_disabled">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 6</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Warning">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 7</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Manufacturer_1">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 8</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Remote">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 9</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Target_reached">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 10 (Position/Speed/Torque reached)</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Internal_limit_active">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 11</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Op_mode_specific_1">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 12 (Set-point acknowledge / Speed)</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Op_mode_specific_2">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 13 (Following error)</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Manufacturer_2">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 14</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Manufacturer_3">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 15</xhtml>
++            </documentation>
++          </variable>
++        </struct>
++      </baseType>
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>0b524d6c-408b-479a-9a06-a1e4c384cda0</ObjectId>
++        </data>
++      </addData>
++    </dataType>
++    </datatype>
++    <datatype name="E_ErrorCode">
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>629d6098-7f15-4517-b4dd-cc14f6ad3c40</ObjectId>
++        </data>
++      </addData>
++    <dataType name="E_ErrorCode">
++      <baseType>
++        <enum>
++          <values>
++            <value name="No_Error" value="16#0" />
++            <value name="Er01_0_SW_Version_Mismatch" value="16#100" />
++            <value name="Er01_1_Motor_Param_Mismatch" value="16#110" />
++            <value name="Er02_0_No_Drive_Match" value="16#200" />
++            <value name="Er02_1_No_Motor_Match" value="16#210" />
++            <value name="Er02_2_No_Encoder_Match" value="16#220" />
++            <value name="Er03_0_System_Param_Error" value="16#300" />
++            <value name="Er03_1_Param_Out_of_Range" value="16#310" />
++            <value name="Er03_2_Param_Write_Error" value="16#320" />
++            <value name="Er03_3_Param_Read_Error" value="16#330" />
++            <value name="Er05_0_Current_Loop_Timeout" value="16#500" />
++            <value name="Er05_1_Speed_Loop_Timeout" value="16#510" />
++            <value name="Er05_2_Position_Loop_Timeout" value="16#520" />
++            <value name="Er05_3_Serial_Data_Check_Fail" value="16#530" />
++            <value name="Er06_0_Runaway_Protection" value="16#600" />
++            <value name="Er10_0_P_HW_Overcurrent" value="16#1000" />
++            <value name="Er10_1_N_HW_Overcurrent" value="16#1010" />
++            <value name="Er10_2_U_SW_Overcurrent" value="16#1020" />
++            <value name="Er10_3_V_SW_Overcurrent" value="16#1030" />
++            <value name="Er10_4_Output_Short_to_Ground" value="16#1040" />
++            <value name="Er10_5_Current_Sampling_Fail" value="16#1050" />
++            <value name="Er10_6_Incorrect_Current_Param" value="16#1060" />
++            <value name="Er10_7_UV_Current_Correction_Fail" value="16#1070" />
++            <value name="Er10_8_Excessive_Current_Zero_Drift" value="16#1080" />
++            <value name="Er10_9_Current_Exception_Enabling" value="16#1090" />
++            <value name="Er11_0_Excessive_Motor_Speed_PowerOn" value="16#1100" />
++            <value name="Er11_1_Drive_Over_Temperature" value="16#1110" />
++            <value name="Er20_1_Encoder_Internal_Fault" value="16#2010" />
++            <value name="Er20_2_Encoder_Read_Write_Error" value="16#2020" />
++            <value name="Er20_3_Encoder_Data_Frame_Loss" value="16#2030" />
++            <value name="Er20_4_Encoder_Incremental_Overflow" value="16#2040" />
++            <value name="Er20_5_Abnormal_Encoder_Data" value="16#2050" />
++            <value name="Er20_6_Encoder_Type_Mismatch" value="16#2060" />
++            <value name="Er20_7_Encoder_Model_Unsupported" value="16#2070" />
++            <value name="Er20_8_Encoder_Battery_Failure" value="16#2080" />
++            <value name="Er20_9_Encoder_MultiTurn_Error" value="16#2090" />
++            <value name="Er21_0_Encoder_Pulse_Mismatch" value="16#2100" />
++            <value name="Er31_0_More_Than_10_PDO_Objects" value="16#3100" />
++            <value name="Er32_0_EtherCAT_Peripheral_Error" value="16#3200" />
++            <value name="Er32_1_ESI_Check_Error" value="16#3210" />
++            <value name="Er32_2_EEPROM_Read_Fail" value="16#3220" />
++            <value name="Er32_3_EEPROM_Update_Fail" value="16#3230" />
++            <value name="Er32_4_ESC_Checksum_Error" value="16#3240" />
++            <value name="Er32_5_XML_Info_Fail" value="16#3250" />
++            <value name="Er40_0_Drive_Overload" value="16#4000" />
++            <value name="Er41_0_Motor_Overload" value="16#4100" />
++            <value name="Er41_1_Motor_Locked_Rotor" value="16#4110" />
++            <value name="Er41_2_Motor_Over_Temperature" value="16#4120" />
++            <value name="Er42_1_Discharge_Tube_Temp_High" value="16#4210" />
++            <value name="Er42_2_Heatsink_Temp_High" value="16#4220" />
++            <value name="Er43_0_Overvoltage" value="16#4300" />
++            <value name="Er43_1_Undervoltage" value="16#4310" />
++            <value name="Er45_0_S_ON_Enabling_Failure" value="16#4500" />
++            <value name="Er46_0_Motor_Overspeed" value="16#4600" />
++            <value name="Er47_0_Excessive_Position_Deviation" value="16#4700" />
++            <value name="Er47_1_Position_Deviation_Overflow" value="16#4710" />
++            <value name="Er50_1_DQ_Current_Overflow" value="16#5010" />
++            <value name="Er51_0_Offline_Inertia_AutoTune_Fail" value="16#5100" />
++            <value name="Er51_1_Offline_Inertia_Param_Error" value="16#5110" />
++            <value name="Er52_0_Angle_AutoTuning_Failure" value="16#5200" />
++            <value name="Er53_0_Motor_Param_AutoTune_Timeout" value="16#5300" />
++            <value name="Er53_1_Resistance_AutoTune_Fail" value="16#5310" />
++            <value name="Er53_2_Inductance_AutoTune_Fail" value="16#5320" />
++            <value name="Er53_3_BackEMF_AutoTune_Fail" value="16#5330" />
++            <value name="Er54_0_Current_Loop_AutoTune_Fail" value="16#5400" />
++            <value name="Er55_0_Excessive_Vibration" value="16#5500" />
++            <value name="Er74_0_EtherCAT_Sync_Cycle_Error" value="16#7400" />
++            <value name="Er74_1_No_Sync_Signal" value="16#7410" />
++            <value name="Er74_2_Chip_Sync_Incomplete_OP" value="16#7420" />
++            <value name="Er80_0_Control_Power_Undervoltage" value="16#8000" />
++            <value name="Er81_0_Input_Phase_Loss_1" value="16#8100" />
++            <value name="Er81_1_Input_Phase_Loss_2" value="16#8110" />
++            <value name="Er81_2_Output_Phase_Loss" value="16#8120" />
++            <value name="Er82_0_DI_Function_Allocation_Fault" value="16#8200" />
++            <value name="Er82_1_DO_Function_Allocation_Fault" value="16#8210" />
++            <value name="Er84_0_Electronic_Gear_Ratio_Error" value="16#8400" />
++            <value name="Er84_1_Software_Limit_Setting_Error" value="16#8410" />
++            <value name="Er84_2_Encoder_Resolution_Error" value="16#8420" />
++            <value name="Er84_3_Home_Position_Setting_Error" value="16#8430" />
++            <value name="Er87_1_OneTime_Pos_Ref_Increment" value="16#8710" />
++            <value name="Er87_2_Continuous_Pos_Ref_Increment" value="16#8720" />
++            <value name="Er87_3_Target_Pos_32bit_Overflow" value="16#8730" />
++            <value name="Er87_4_Target_Pos_Exceeds_SingleTurn" value="16#8740" />
++            <value name="ErA0_1_MultiTurn_Overflow_Fault" value="16#A010" />
++            <value name="ErC1_0_EtherCAT_Sync_Period_Error" value="16#C100" />
++            <value name="ErC1_1_Synchronization_Loss" value="16#C110" />
++            <value name="ErC1_2_Network_Status_Switch_Error" value="16#C120" />
++            <value name="ErC1_4_Network_Cable_Unreliable" value="16#C140" />
++            <value name="ErC1_5_Data_Frame_Loss_Protection" value="16#C150" />
++            <value name="ErC1_6_Data_Frame_Forwarding_Error" value="16#C160" />
++            <value name="ErC1_7_Data_Update_Timeout" value="16#C170" />
++            <value name="ErC1_8_Watchdog_Expired" value="16#C180" />
++            <value name="ErC2_0_SYNC_Signal_Loss" value="16#C200" />
++            <value name="ALF0_0_Emergency_Stop_Alarm" value="16#F000" />
++            <value name="ALF1_0_RePowerOn_Required" value="16#F100" />
++            <value name="ALF1_1_Frequent_Param_Storage_Alarm" value="16#F110" />
++            <value name="ALF1_2_Torque_Reached_Param_Error" value="16#F120" />
++            <value name="ALF1_3_Too_Frequent_EEPROM_Writing" value="16#F130" />
++            <value name="ALF2_0_Forward_Overtravel_Alarm" value="16#F200" />
++            <value name="ALF2_1_Reverse_Overtravel_Alarm" value="16#F210" />
++            <value name="ALF4_0_Homing_Timeout" value="16#F400" />
++            <value name="ALF4_1_Homing_DI_Conflict" value="16#F410" />
++            <value name="ALF4_2_Homing_Mode_Conflict" value="16#F420" />
++            <value name="ALF5_0_Braking_Resistor_Overload" value="16#F500" />
++            <value name="ALF5_1_External_Brake_Resistance_Low" value="16#F510" />
++            <value name="ALF6_1_Output_Phase_Loss" value="16#F610" />
++            <value name="ALF8_0_Vibration_During_AutoTuning" value="16#F800" />
++            <value name="ALF9_0_Encoder_Battery_Voltage_Low" value="16#F900" />
++            <value name="ALFA_0_Drive_High_Temp_Warning" value="16#FAA0" />
++            <value name="xxnr_Servo_Not_Ready" value="16#FFFF" />
++          </values>
++          <baseType>
++            <UINT />
++          </baseType>
++        </enum>
++      </baseType>
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/enumvaluedocumentation" handleUnknown="implementation">
++          <EnumValueDocumentation>
++            <EnumValue>
++              <Name>No_Error</Name>
++              <Documentation>
++                <xhtml xmlns="http://www.w3.org/1999/xhtml"> ================= Нет ошибки =================</xhtml>
++              </Documentation>
++            </EnumValue>
++            <EnumValue>
++              <Name>Er01_0_SW_Version_Mismatch</Name>
++              <Documentation>
++                <xhtml xmlns="http://www.w3.org/1999/xhtml"> ================= Class 1: Non-resettable =================
++    --- Ошибки версий и параметров ---</xhtml>
++              </Documentation>
++            </EnumValue>
++            <EnumValue>
++              <Name>Er05_0_Current_Loop_Timeout</Name>
++              <Documentation>
++                <xhtml xmlns="http://www.w3.org/1999/xhtml"> --- Ошибки таймаутов циклов ---</xhtml>
++              </Documentation>
++            </EnumValue>
++            <EnumValue>
++              <Name>Er06_0_Runaway_Protection</Name>
++              <Documentation>
++                <xhtml xmlns="http://www.w3.org/1999/xhtml"> --- Защита от разгона ---</xhtml>
++              </Documentation>
++            </EnumValue>
++            <EnumValue>
++              <Name>Er10_0_P_HW_Overcurrent</Name>
++              <Documentation>
++                <xhtml xmlns="http://www.w3.org/1999/xhtml"> --- Токовые ошибки ---</xhtml>
++              </Documentation>
++            </EnumValue>
++            <EnumValue>
++              <Name>Er11_0_Excessive_Motor_Speed_PowerOn</Name>
++              <Documentation>
++                <xhtml xmlns="http://www.w3.org/1999/xhtml"> --- Ошибки мотора ---</xhtml>
++              </Documentation>
++            </EnumValue>
++            <EnumValue>
++              <Name>Er20_1_Encoder_Internal_Fault</Name>
++              <Documentation>
++                <xhtml xmlns="http://www.w3.org/1999/xhtml"> --- Ошибки энкодера ---</xhtml>
++              </Documentation>
++            </EnumValue>
++            <EnumValue>
++              <Name>Er31_0_More_Than_10_PDO_Objects</Name>
++              <Documentation>
++                <xhtml xmlns="http://www.w3.org/1999/xhtml"> --- Ошибки EtherCAT ---</xhtml>
++              </Documentation>
++            </EnumValue>
++            <EnumValue>
++              <Name>Er40_0_Drive_Overload</Name>
++              <Documentation>
++                <xhtml xmlns="http://www.w3.org/1999/xhtml"> ================= Class 1: Resettable =================</xhtml>
++              </Documentation>
++            </EnumValue>
++            <EnumValue>
++              <Name>Er80_0_Control_Power_Undervoltage</Name>
++              <Documentation>
++                <xhtml xmlns="http://www.w3.org/1999/xhtml"> ================= Class 2 (Предупреждения) =================</xhtml>
++              </Documentation>
++            </EnumValue>
++            <EnumValue>
++              <Name>ALF0_0_Emergency_Stop_Alarm</Name>
++              <Documentation>
++                <xhtml xmlns="http://www.w3.org/1999/xhtml"> ================= Class 3: Alarms (Алармы) =================</xhtml>
++              </Documentation>
++            </EnumValue>
++          </EnumValueDocumentation>
++        </data>
++        <data name="http://www.3s-software.com/plcopenxml/attributes" handleUnknown="implementation">
++          <Attributes>
++            <Attribute Name="qualified_only" Value="" />
++            <Attribute Name="strict" Value="" />
++          </Attributes>
++        </data>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>629d6098-7f15-4517-b4dd-cc14f6ad3c40</ObjectId>
++        </data>
++      </addData>
++    </dataType>
++    </datatype>
++    <datatype name="ST_TouchProbeStatus_Bits">
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>dd5aecb6-fb96-41ff-97af-6207ad127ca7</ObjectId>
++        </data>
++      </addData>
++    <dataType name="ST_TouchProbeStatus_Bits">
++      <baseType>
++        <struct />
++      </baseType>
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>dd5aecb6-fb96-41ff-97af-6207ad127ca7</ObjectId>
++        </data>
++      </addData>
++    </dataType>
++    </datatype>
++    <datatype name="ST_TouchProbeFunction_Bits">
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>1f66ab67-9d33-495c-9802-a777441928df</ObjectId>
++        </data>
++      </addData>
++    <dataType name="ST_TouchProbeFunction_Bits">
++      <baseType>
++        <struct>
++          <variable name="TP1_Enable">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 0: 0=Disabled, 1=Enabled</xhtml>
++            </documentation>
++          </variable>
++          <variable name="TP1_TriggerMode">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 1: 0=Single, 1=Continuous</xhtml>
++            </documentation>
++          </variable>
++          <variable name="TP1_SignalSource">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 2: 0=DI signal, 1=Z signal</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Reserved_3">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 3</xhtml>
++            </documentation>
++          </variable>
++          <variable name="TP1_PosEdge_Enable">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 4: Разрешить захват по положительному фронту</xhtml>
++            </documentation>
++          </variable>
++          <variable name="TP1_NegEdge_Enable">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 5: Разрешить захват по отрицательному фронту</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Reserved_6">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 6</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Reserved_7">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 7</xhtml>
++            </documentation>
++          </variable>
++          <variable name="TP2_Enable">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 8</xhtml>
++            </documentation>
++          </variable>
++          <variable name="TP2_TriggerMode">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 9</xhtml>
++            </documentation>
++          </variable>
++          <variable name="TP2_SignalSource">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 10</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Reserved_11">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 11</xhtml>
++            </documentation>
++          </variable>
++          <variable name="TP2_PosEdge_Enable">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 12</xhtml>
++            </documentation>
++          </variable>
++          <variable name="TP2_NegEdge_Enable">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 13</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Reserved_14">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 14</xhtml>
++            </documentation>
++          </variable>
++          <variable name="Reserved_15">
++            <type>
++              <derived name="BIT" />
++            </type>
++            <documentation>
++              <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 15</xhtml>
++            </documentation>
++          </variable>
++        </struct>
++      </baseType>
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>1f66ab67-9d33-495c-9802-a777441928df</ObjectId>
++        </data>
++      </addData>
++    </dataType>
++    </datatype>
++    <union name="U_A6ControlWord">
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>21f6bff5-aedc-4fa3-bb85-0913613bedbd</ObjectId>
++        </data>
++      </addData>
++    <union name="U_A6ControlWord">
++      <variable name="CW">
++        <type>
++          <UINT />
++        </type>
++      </variable>
++      <variable name="Bits">
++        <type>
++          <derived name="ST_ControlWord_Bits" />
++        </type>
++      </variable>
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>21f6bff5-aedc-4fa3-bb85-0913613bedbd</ObjectId>
++        </data>
++      </addData>
++    </union>
++    </union>
++    <union name="U_A6StatusWord">
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>46d4d81b-3c58-406f-938f-36d177191493</ObjectId>
++        </data>
++      </addData>
++    <union name="U_A6StatusWord">
++      <variable name="SW">
++        <type>
++          <UINT />
++        </type>
++      </variable>
++      <variable name="Bits">
++        <type>
++          <derived name="ST_StatusWord_Bits" />
++        </type>
++      </variable>
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>46d4d81b-3c58-406f-938f-36d177191493</ObjectId>
++        </data>
++      </addData>
++    </union>
++    </union>
++    <union name="U_A6TouchProbeFunction">
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>5c006a8c-2f6e-40a5-8d6e-74469f894b52</ObjectId>
++        </data>
++      </addData>
++    <union name="U_A6TouchProbeFunction">
++      <variable name="Func">
++        <type>
++          <UINT />
++        </type>
++      </variable>
++      <variable name="Bits">
++        <type>
++          <derived name="ST_TouchProbeFunction_Bits" />
++        </type>
++      </variable>
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>5c006a8c-2f6e-40a5-8d6e-74469f894b52</ObjectId>
++        </data>
++      </addData>
++    </union>
++    </union>
++    <union name="U_A6TouchProbeStatus">
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>aedad91a-5852-4be7-8361-bf2633126450</ObjectId>
++        </data>
++      </addData>
++    <union name="U_A6TouchProbeStatus">
++      <variable name="SW">
++        <type>
++          <UINT />
++        </type>
++      </variable>
++      <variable name="Bits">
++        <type>
++          <derived name="ST_TouchProbeStatus_Bits" />
++        </type>
++      </variable>
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>aedad91a-5852-4be7-8361-bf2633126450</ObjectId>
++        </data>
++      </addData>
++    </union>
++    </union>
++    </dataTypes>
++    <pous>
++    <pou name="PLC_PRG">
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>64045e63-8290-4ee2-ac36-ed90204edbeb</ObjectId>
++        </data>
++      </addData>
++    <pou name="PLC_PRG" pouType="program">
++      <interface />
++      <body>
++        <ST>
++          <xhtml xmlns="http://www.w3.org/1999/xhtml">//Qumark:=GVL.Qumark;
++    </xhtml>
++        </ST>
++      </body>
++      <addData>
++        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
++          <ObjectId>64045e63-8290-4ee2-ac36-ed90204edbeb</ObjectId>
++        </data>
++      </addData>
++    </pou>
++    </pou>
++    </pous>
+   </types>
+   <instances>
+     <configurations>
+@@ -105,1185 +1330,6 @@
+             </addData>
+           </globalVars>
+           <addData>
+-            <data name="http://www.3s-software.com/plcopenxml/datatype" handleUnknown="implementation">
+-              <dataType name="ST_A6Control">
+-                <baseType>
+-                  <struct>
+-                    <variable name="Control_word">
+-                      <type>
+-                        <derived name="U_A6ControlWord" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> 6040h - Управляющее слово</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Target_position">
+-                      <type>
+-                        <DINT />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> 607Ah - Целевая позиция</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Target_velocity">
+-                      <type>
+-                        <DINT />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> 60FFh - Целевая скорость</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Target_torque">
+-                      <type>
+-                        <INT />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> 6071h - Целевой момент</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Modes_of_operation">
+-                      <type>
+-                        <derived name="E_ModesOfOperation" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> 6060h - Режим работы (SINT!)</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Touch_probe_function">
+-                      <type>
+-                        <derived name="U_A6TouchProbeFunction" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> 60B8h - Функция Touch Probe</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Max_profile_velocity">
+-                      <type>
+-                        <UDINT />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> 607Fh - Макс. скорость профиля</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Positive_torque_limit">
+-                      <type>
+-                        <UINT />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> 60E0h - Положительный лимит момента</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Negative_torque_limit">
+-                      <type>
+-                        <UINT />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> 60E1h - Отрицательный лимит момента</xhtml>
+-                      </documentation>
+-                    </variable>
+-                  </struct>
+-                </baseType>
+-                <addData>
+-                  <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-                    <ObjectId>176e60e4-dc06-4c57-8e92-25ce06e25d87</ObjectId>
+-                  </data>
+-                </addData>
+-              </dataType>
+-            </data>
+-            <data name="http://www.3s-software.com/plcopenxml/datatype" handleUnknown="implementation">
+-              <dataType name="ST_A6Status">
+-                <baseType>
+-                  <struct>
+-                    <variable name="Error_code">
+-                      <type>
+-                        <derived name="E_ErrorCode" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> 603Fh - Код ошибки</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Statusword">
+-                      <type>
+-                        <derived name="U_A6StatusWord" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> 6041h - Статусное слово</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Position_actual_value">
+-                      <type>
+-                        <DINT />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> 6064h - Фактическая позиция</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Torque_actual_value">
+-                      <type>
+-                        <INT />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> 6077h - Фактический момент</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Modes_of_operation_disp">
+-                      <type>
+-                        <derived name="E_ModesOfOperation" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> 6061h - Отображение режима работы</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Following_error_actual">
+-                      <type>
+-                        <DINT />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> 60F4h - Фактическое рассогласование </xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Touch_probe_status">
+-                      <type>
+-                        <derived name="U_A6TouchProbeStatus" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> 60B9h - Статус Touch Probe</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Touch_probe_pos1_value">
+-                      <type>
+-                        <DINT />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> 60BAh - Значение Touch Probe 1</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Touch_probe_pos2_value">
+-                      <type>
+-                        <DINT />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> 60BCh - Значение Touch Probe 2</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Velocity_actual_value">
+-                      <type>
+-                        <DINT />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> 606Ch - Фактическая скорость</xhtml>
+-                      </documentation>
+-                    </variable>
+-                  </struct>
+-                </baseType>
+-                <addData>
+-                  <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-                    <ObjectId>9efa9f6e-f38d-4d8e-93ac-206ac8aa1d90</ObjectId>
+-                  </data>
+-                </addData>
+-              </dataType>
+-            </data>
+-            <data name="http://www.3s-software.com/plcopenxml/datatype" handleUnknown="implementation">
+-              <dataType name="ST_A6">
+-                <baseType>
+-                  <struct>
+-                    <variable name="In">
+-                      <type>
+-                        <derived name="ST_A6Status" />
+-                      </type>
+-                    </variable>
+-                    <variable name="Out">
+-                      <type>
+-                        <derived name="ST_A6Control" />
+-                      </type>
+-                    </variable>
+-                  </struct>
+-                </baseType>
+-                <addData>
+-                  <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-                    <ObjectId>45ca426d-ce48-451d-971b-9e41c1f4ddc7</ObjectId>
+-                  </data>
+-                </addData>
+-              </dataType>
+-            </data>
+-            <data name="http://www.3s-software.com/plcopenxml/datatype" handleUnknown="implementation">
+-              <dataType name="HW_ALL">
+-                <baseType>
+-                  <struct>
+-                    <variable name="DI">
+-                      <type>
+-                        <derived name="DI" />
+-                      </type>
+-                    </variable>
+-                    <variable name="Dout">
+-                      <type>
+-                        <derived name="Dout" />
+-                      </type>
+-                    </variable>
+-                    <variable name="AI">
+-                      <type>
+-                        <derived name="AI" />
+-                      </type>
+-                    </variable>
+-                    <variable name="Servo">
+-                      <type>
+-                        <derived name="Servo" />
+-                      </type>
+-                    </variable>
+-                  </struct>
+-                </baseType>
+-                <addData>
+-                  <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-                    <ObjectId>63de8f70-e5df-4330-a8d8-cf725f6d34ad</ObjectId>
+-                  </data>
+-                </addData>
+-              </dataType>
+-            </data>
+-            <data name="http://www.3s-software.com/plcopenxml/datatype" handleUnknown="implementation">
+-              <dataType name="DI">
+-                <baseType>
+-                  <struct />
+-                </baseType>
+-                <addData>
+-                  <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-                    <ObjectId>311b57e4-651a-45f0-b9f8-9ac0eac27592</ObjectId>
+-                  </data>
+-                </addData>
+-              </dataType>
+-            </data>
+-            <data name="http://www.3s-software.com/plcopenxml/datatype" handleUnknown="implementation">
+-              <dataType name="Dout">
+-                <baseType>
+-                  <struct />
+-                </baseType>
+-                <addData>
+-                  <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-                    <ObjectId>c7b5456f-6c4f-4592-a558-b3db656c49d3</ObjectId>
+-                  </data>
+-                </addData>
+-              </dataType>
+-            </data>
+-            <data name="http://www.3s-software.com/plcopenxml/datatype" handleUnknown="implementation">
+-              <dataType name="AI">
+-                <baseType>
+-                  <struct />
+-                </baseType>
+-                <addData>
+-                  <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-                    <ObjectId>d8a0297d-57f1-4136-942e-33dd1531b6b9</ObjectId>
+-                  </data>
+-                </addData>
+-              </dataType>
+-            </data>
+-            <data name="http://www.3s-software.com/plcopenxml/datatype" handleUnknown="implementation">
+-              <dataType name="AO">
+-                <baseType>
+-                  <struct />
+-                </baseType>
+-                <addData>
+-                  <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-                    <ObjectId>34bc9537-ad86-4fd9-9d72-6d799533e684</ObjectId>
+-                  </data>
+-                </addData>
+-              </dataType>
+-            </data>
+-            <data name="http://www.3s-software.com/plcopenxml/datatype" handleUnknown="implementation">
+-              <dataType name="Servo">
+-                <baseType>
+-                  <struct>
+-                    <variable name="Axis_Move">
+-                      <type>
+-                        <derived name="ST_A6" />
+-                      </type>
+-                    </variable>
+-                    <variable name="Axis_UP_Left">
+-                      <type>
+-                        <derived name="ST_A6" />
+-                      </type>
+-                    </variable>
+-                    <variable name="Axis_UP_Right">
+-                      <type>
+-                        <derived name="ST_A6" />
+-                      </type>
+-                    </variable>
+-                  </struct>
+-                </baseType>
+-                <addData>
+-                  <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-                    <ObjectId>b2643b84-3378-4963-8a01-e5f254bf3fda</ObjectId>
+-                  </data>
+-                </addData>
+-              </dataType>
+-            </data>
+-            <data name="http://www.3s-software.com/plcopenxml/datatype" handleUnknown="implementation">
+-              <dataType name="E_ModesOfOperation">
+-                <baseType>
+-                  <enum>
+-                    <values>
+-                      <value name="No_Mode" value="0" />
+-                      <value name="PP" value="1" />
+-                      <value name="PV" value="3" />
+-                      <value name="PT" value="4" />
+-                      <value name="HM" value="6" />
+-                      <value name="CSP" value="8" />
+-                      <value name="CSV" value="9" />
+-                      <value name="CST" value="10" />
+-                    </values>
+-                  </enum>
+-                </baseType>
+-                <addData>
+-                  <data name="http://www.3s-software.com/plcopenxml/enumvaluedocumentation" handleUnknown="implementation">
+-                    <EnumValueDocumentation>
+-                      <EnumValue>
+-                        <Name>No_Mode</Name>
+-                        <Documentation>
+-                          <xhtml xmlns="http://www.w3.org/1999/xhtml"> Режим не задан</xhtml>
+-                        </Documentation>
+-                      </EnumValue>
+-                      <EnumValue>
+-                        <Name>PP</Name>
+-                        <Documentation>
+-                          <xhtml xmlns="http://www.w3.org/1999/xhtml"> Profile Position</xhtml>
+-                        </Documentation>
+-                      </EnumValue>
+-                      <EnumValue>
+-                        <Name>PV</Name>
+-                        <Documentation>
+-                          <xhtml xmlns="http://www.w3.org/1999/xhtml"> Profile Velocity</xhtml>
+-                        </Documentation>
+-                      </EnumValue>
+-                      <EnumValue>
+-                        <Name>PT</Name>
+-                        <Documentation>
+-                          <xhtml xmlns="http://www.w3.org/1999/xhtml"> Profile Torque</xhtml>
+-                        </Documentation>
+-                      </EnumValue>
+-                      <EnumValue>
+-                        <Name>HM</Name>
+-                        <Documentation>
+-                          <xhtml xmlns="http://www.w3.org/1999/xhtml"> Homing Mode</xhtml>
+-                        </Documentation>
+-                      </EnumValue>
+-                      <EnumValue>
+-                        <Name>CSP</Name>
+-                        <Documentation>
+-                          <xhtml xmlns="http://www.w3.org/1999/xhtml"> Cyclic Synchronous Position</xhtml>
+-                        </Documentation>
+-                      </EnumValue>
+-                      <EnumValue>
+-                        <Name>CSV</Name>
+-                        <Documentation>
+-                          <xhtml xmlns="http://www.w3.org/1999/xhtml"> Cyclic Synchronous Velocity</xhtml>
+-                        </Documentation>
+-                      </EnumValue>
+-                      <EnumValue>
+-                        <Name>CST</Name>
+-                        <Documentation>
+-                          <xhtml xmlns="http://www.w3.org/1999/xhtml"> Cyclic Synchronous Torque</xhtml>
+-                        </Documentation>
+-                      </EnumValue>
+-                    </EnumValueDocumentation>
+-                  </data>
+-                  <data name="http://www.3s-software.com/plcopenxml/attributes" handleUnknown="implementation">
+-                    <Attributes>
+-                      <Attribute Name="qualified_only" Value="" />
+-                      <Attribute Name="strict" Value="" />
+-                    </Attributes>
+-                  </data>
+-                  <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-                    <ObjectId>d3d6e5cf-5d08-46b9-840d-1215cc27e49a</ObjectId>
+-                  </data>
+-                </addData>
+-              </dataType>
+-            </data>
+-            <data name="http://www.3s-software.com/plcopenxml/datatype" handleUnknown="implementation">
+-              <dataType name="ST_ControlWord_Bits">
+-                <baseType>
+-                  <struct>
+-                    <variable name="Switch_on">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 0</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Enable_voltage">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 1</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Quick_stop">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 2 (0 = Quick stop active)</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Enable_operation">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 3</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Op_mode_specific_1">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 4 (New set-point / Enable ramp)</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Op_mode_specific_2">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 5 (Change set immediately / Unlock ramp)</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Op_mode_specific_3">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 6 (Absolute / Relative)</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Fault_reset">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 7 (0-&gt;1 = Reset fault)</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Halt">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 8</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Op_mode_specific_4">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 9</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Reserved_10">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 10</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Manufacturer_1">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 11</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Manufacturer_2">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 12</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Manufacturer_3">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 13</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Manufacturer_4">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 14</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Manufacturer_5">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 15</xhtml>
+-                      </documentation>
+-                    </variable>
+-                  </struct>
+-                </baseType>
+-                <addData>
+-                  <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-                    <ObjectId>489416d9-0200-46f9-81ed-bb42c3752258</ObjectId>
+-                  </data>
+-                </addData>
+-              </dataType>
+-            </data>
+-            <data name="http://www.3s-software.com/plcopenxml/datatype" handleUnknown="implementation">
+-              <dataType name="ST_StatusWord_Bits">
+-                <baseType>
+-                  <struct>
+-                    <variable name="Ready_to_switch_on">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 0</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Switched_on">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 1</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Operation_enabled">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 2</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Fault">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 3</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Voltage_enabled">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 4</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Quick_stop">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 5 (0 = Quick stop active)</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Switch_on_disabled">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 6</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Warning">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 7</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Manufacturer_1">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 8</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Remote">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 9</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Target_reached">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 10 (Position/Speed/Torque reached)</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Internal_limit_active">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 11</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Op_mode_specific_1">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 12 (Set-point acknowledge / Speed)</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Op_mode_specific_2">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 13 (Following error)</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Manufacturer_2">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 14</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Manufacturer_3">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 15</xhtml>
+-                      </documentation>
+-                    </variable>
+-                  </struct>
+-                </baseType>
+-                <addData>
+-                  <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-                    <ObjectId>0b524d6c-408b-479a-9a06-a1e4c384cda0</ObjectId>
+-                  </data>
+-                </addData>
+-              </dataType>
+-            </data>
+-            <data name="http://www.3s-software.com/plcopenxml/datatype" handleUnknown="implementation">
+-              <dataType name="E_ErrorCode">
+-                <baseType>
+-                  <enum>
+-                    <values>
+-                      <value name="No_Error" value="16#0" />
+-                      <value name="Er01_0_SW_Version_Mismatch" value="16#100" />
+-                      <value name="Er01_1_Motor_Param_Mismatch" value="16#110" />
+-                      <value name="Er02_0_No_Drive_Match" value="16#200" />
+-                      <value name="Er02_1_No_Motor_Match" value="16#210" />
+-                      <value name="Er02_2_No_Encoder_Match" value="16#220" />
+-                      <value name="Er03_0_System_Param_Error" value="16#300" />
+-                      <value name="Er03_1_Param_Out_of_Range" value="16#310" />
+-                      <value name="Er03_2_Param_Write_Error" value="16#320" />
+-                      <value name="Er03_3_Param_Read_Error" value="16#330" />
+-                      <value name="Er05_0_Current_Loop_Timeout" value="16#500" />
+-                      <value name="Er05_1_Speed_Loop_Timeout" value="16#510" />
+-                      <value name="Er05_2_Position_Loop_Timeout" value="16#520" />
+-                      <value name="Er05_3_Serial_Data_Check_Fail" value="16#530" />
+-                      <value name="Er06_0_Runaway_Protection" value="16#600" />
+-                      <value name="Er10_0_P_HW_Overcurrent" value="16#1000" />
+-                      <value name="Er10_1_N_HW_Overcurrent" value="16#1010" />
+-                      <value name="Er10_2_U_SW_Overcurrent" value="16#1020" />
+-                      <value name="Er10_3_V_SW_Overcurrent" value="16#1030" />
+-                      <value name="Er10_4_Output_Short_to_Ground" value="16#1040" />
+-                      <value name="Er10_5_Current_Sampling_Fail" value="16#1050" />
+-                      <value name="Er10_6_Incorrect_Current_Param" value="16#1060" />
+-                      <value name="Er10_7_UV_Current_Correction_Fail" value="16#1070" />
+-                      <value name="Er10_8_Excessive_Current_Zero_Drift" value="16#1080" />
+-                      <value name="Er10_9_Current_Exception_Enabling" value="16#1090" />
+-                      <value name="Er11_0_Excessive_Motor_Speed_PowerOn" value="16#1100" />
+-                      <value name="Er11_1_Drive_Over_Temperature" value="16#1110" />
+-                      <value name="Er20_1_Encoder_Internal_Fault" value="16#2010" />
+-                      <value name="Er20_2_Encoder_Read_Write_Error" value="16#2020" />
+-                      <value name="Er20_3_Encoder_Data_Frame_Loss" value="16#2030" />
+-                      <value name="Er20_4_Encoder_Incremental_Overflow" value="16#2040" />
+-                      <value name="Er20_5_Abnormal_Encoder_Data" value="16#2050" />
+-                      <value name="Er20_6_Encoder_Type_Mismatch" value="16#2060" />
+-                      <value name="Er20_7_Encoder_Model_Unsupported" value="16#2070" />
+-                      <value name="Er20_8_Encoder_Battery_Failure" value="16#2080" />
+-                      <value name="Er20_9_Encoder_MultiTurn_Error" value="16#2090" />
+-                      <value name="Er21_0_Encoder_Pulse_Mismatch" value="16#2100" />
+-                      <value name="Er31_0_More_Than_10_PDO_Objects" value="16#3100" />
+-                      <value name="Er32_0_EtherCAT_Peripheral_Error" value="16#3200" />
+-                      <value name="Er32_1_ESI_Check_Error" value="16#3210" />
+-                      <value name="Er32_2_EEPROM_Read_Fail" value="16#3220" />
+-                      <value name="Er32_3_EEPROM_Update_Fail" value="16#3230" />
+-                      <value name="Er32_4_ESC_Checksum_Error" value="16#3240" />
+-                      <value name="Er32_5_XML_Info_Fail" value="16#3250" />
+-                      <value name="Er40_0_Drive_Overload" value="16#4000" />
+-                      <value name="Er41_0_Motor_Overload" value="16#4100" />
+-                      <value name="Er41_1_Motor_Locked_Rotor" value="16#4110" />
+-                      <value name="Er41_2_Motor_Over_Temperature" value="16#4120" />
+-                      <value name="Er42_1_Discharge_Tube_Temp_High" value="16#4210" />
+-                      <value name="Er42_2_Heatsink_Temp_High" value="16#4220" />
+-                      <value name="Er43_0_Overvoltage" value="16#4300" />
+-                      <value name="Er43_1_Undervoltage" value="16#4310" />
+-                      <value name="Er45_0_S_ON_Enabling_Failure" value="16#4500" />
+-                      <value name="Er46_0_Motor_Overspeed" value="16#4600" />
+-                      <value name="Er47_0_Excessive_Position_Deviation" value="16#4700" />
+-                      <value name="Er47_1_Position_Deviation_Overflow" value="16#4710" />
+-                      <value name="Er50_1_DQ_Current_Overflow" value="16#5010" />
+-                      <value name="Er51_0_Offline_Inertia_AutoTune_Fail" value="16#5100" />
+-                      <value name="Er51_1_Offline_Inertia_Param_Error" value="16#5110" />
+-                      <value name="Er52_0_Angle_AutoTuning_Failure" value="16#5200" />
+-                      <value name="Er53_0_Motor_Param_AutoTune_Timeout" value="16#5300" />
+-                      <value name="Er53_1_Resistance_AutoTune_Fail" value="16#5310" />
+-                      <value name="Er53_2_Inductance_AutoTune_Fail" value="16#5320" />
+-                      <value name="Er53_3_BackEMF_AutoTune_Fail" value="16#5330" />
+-                      <value name="Er54_0_Current_Loop_AutoTune_Fail" value="16#5400" />
+-                      <value name="Er55_0_Excessive_Vibration" value="16#5500" />
+-                      <value name="Er74_0_EtherCAT_Sync_Cycle_Error" value="16#7400" />
+-                      <value name="Er74_1_No_Sync_Signal" value="16#7410" />
+-                      <value name="Er74_2_Chip_Sync_Incomplete_OP" value="16#7420" />
+-                      <value name="Er80_0_Control_Power_Undervoltage" value="16#8000" />
+-                      <value name="Er81_0_Input_Phase_Loss_1" value="16#8100" />
+-                      <value name="Er81_1_Input_Phase_Loss_2" value="16#8110" />
+-                      <value name="Er81_2_Output_Phase_Loss" value="16#8120" />
+-                      <value name="Er82_0_DI_Function_Allocation_Fault" value="16#8200" />
+-                      <value name="Er82_1_DO_Function_Allocation_Fault" value="16#8210" />
+-                      <value name="Er84_0_Electronic_Gear_Ratio_Error" value="16#8400" />
+-                      <value name="Er84_1_Software_Limit_Setting_Error" value="16#8410" />
+-                      <value name="Er84_2_Encoder_Resolution_Error" value="16#8420" />
+-                      <value name="Er84_3_Home_Position_Setting_Error" value="16#8430" />
+-                      <value name="Er87_1_OneTime_Pos_Ref_Increment" value="16#8710" />
+-                      <value name="Er87_2_Continuous_Pos_Ref_Increment" value="16#8720" />
+-                      <value name="Er87_3_Target_Pos_32bit_Overflow" value="16#8730" />
+-                      <value name="Er87_4_Target_Pos_Exceeds_SingleTurn" value="16#8740" />
+-                      <value name="ErA0_1_MultiTurn_Overflow_Fault" value="16#A010" />
+-                      <value name="ErC1_0_EtherCAT_Sync_Period_Error" value="16#C100" />
+-                      <value name="ErC1_1_Synchronization_Loss" value="16#C110" />
+-                      <value name="ErC1_2_Network_Status_Switch_Error" value="16#C120" />
+-                      <value name="ErC1_4_Network_Cable_Unreliable" value="16#C140" />
+-                      <value name="ErC1_5_Data_Frame_Loss_Protection" value="16#C150" />
+-                      <value name="ErC1_6_Data_Frame_Forwarding_Error" value="16#C160" />
+-                      <value name="ErC1_7_Data_Update_Timeout" value="16#C170" />
+-                      <value name="ErC1_8_Watchdog_Expired" value="16#C180" />
+-                      <value name="ErC2_0_SYNC_Signal_Loss" value="16#C200" />
+-                      <value name="ALF0_0_Emergency_Stop_Alarm" value="16#F000" />
+-                      <value name="ALF1_0_RePowerOn_Required" value="16#F100" />
+-                      <value name="ALF1_1_Frequent_Param_Storage_Alarm" value="16#F110" />
+-                      <value name="ALF1_2_Torque_Reached_Param_Error" value="16#F120" />
+-                      <value name="ALF1_3_Too_Frequent_EEPROM_Writing" value="16#F130" />
+-                      <value name="ALF2_0_Forward_Overtravel_Alarm" value="16#F200" />
+-                      <value name="ALF2_1_Reverse_Overtravel_Alarm" value="16#F210" />
+-                      <value name="ALF4_0_Homing_Timeout" value="16#F400" />
+-                      <value name="ALF4_1_Homing_DI_Conflict" value="16#F410" />
+-                      <value name="ALF4_2_Homing_Mode_Conflict" value="16#F420" />
+-                      <value name="ALF5_0_Braking_Resistor_Overload" value="16#F500" />
+-                      <value name="ALF5_1_External_Brake_Resistance_Low" value="16#F510" />
+-                      <value name="ALF6_1_Output_Phase_Loss" value="16#F610" />
+-                      <value name="ALF8_0_Vibration_During_AutoTuning" value="16#F800" />
+-                      <value name="ALF9_0_Encoder_Battery_Voltage_Low" value="16#F900" />
+-                      <value name="ALFA_0_Drive_High_Temp_Warning" value="16#FAA0" />
+-                      <value name="xxnr_Servo_Not_Ready" value="16#FFFF" />
+-                    </values>
+-                    <baseType>
+-                      <UINT />
+-                    </baseType>
+-                  </enum>
+-                </baseType>
+-                <addData>
+-                  <data name="http://www.3s-software.com/plcopenxml/enumvaluedocumentation" handleUnknown="implementation">
+-                    <EnumValueDocumentation>
+-                      <EnumValue>
+-                        <Name>No_Error</Name>
+-                        <Documentation>
+-                          <xhtml xmlns="http://www.w3.org/1999/xhtml"> ================= Нет ошибки =================</xhtml>
+-                        </Documentation>
+-                      </EnumValue>
+-                      <EnumValue>
+-                        <Name>Er01_0_SW_Version_Mismatch</Name>
+-                        <Documentation>
+-                          <xhtml xmlns="http://www.w3.org/1999/xhtml"> ================= Class 1: Non-resettable =================
+- --- Ошибки версий и параметров ---</xhtml>
+-                        </Documentation>
+-                      </EnumValue>
+-                      <EnumValue>
+-                        <Name>Er05_0_Current_Loop_Timeout</Name>
+-                        <Documentation>
+-                          <xhtml xmlns="http://www.w3.org/1999/xhtml"> --- Ошибки таймаутов циклов ---</xhtml>
+-                        </Documentation>
+-                      </EnumValue>
+-                      <EnumValue>
+-                        <Name>Er06_0_Runaway_Protection</Name>
+-                        <Documentation>
+-                          <xhtml xmlns="http://www.w3.org/1999/xhtml"> --- Защита от разгона ---</xhtml>
+-                        </Documentation>
+-                      </EnumValue>
+-                      <EnumValue>
+-                        <Name>Er10_0_P_HW_Overcurrent</Name>
+-                        <Documentation>
+-                          <xhtml xmlns="http://www.w3.org/1999/xhtml"> --- Токовые ошибки ---</xhtml>
+-                        </Documentation>
+-                      </EnumValue>
+-                      <EnumValue>
+-                        <Name>Er11_0_Excessive_Motor_Speed_PowerOn</Name>
+-                        <Documentation>
+-                          <xhtml xmlns="http://www.w3.org/1999/xhtml"> --- Ошибки мотора ---</xhtml>
+-                        </Documentation>
+-                      </EnumValue>
+-                      <EnumValue>
+-                        <Name>Er20_1_Encoder_Internal_Fault</Name>
+-                        <Documentation>
+-                          <xhtml xmlns="http://www.w3.org/1999/xhtml"> --- Ошибки энкодера ---</xhtml>
+-                        </Documentation>
+-                      </EnumValue>
+-                      <EnumValue>
+-                        <Name>Er31_0_More_Than_10_PDO_Objects</Name>
+-                        <Documentation>
+-                          <xhtml xmlns="http://www.w3.org/1999/xhtml"> --- Ошибки EtherCAT ---</xhtml>
+-                        </Documentation>
+-                      </EnumValue>
+-                      <EnumValue>
+-                        <Name>Er40_0_Drive_Overload</Name>
+-                        <Documentation>
+-                          <xhtml xmlns="http://www.w3.org/1999/xhtml"> ================= Class 1: Resettable =================</xhtml>
+-                        </Documentation>
+-                      </EnumValue>
+-                      <EnumValue>
+-                        <Name>Er80_0_Control_Power_Undervoltage</Name>
+-                        <Documentation>
+-                          <xhtml xmlns="http://www.w3.org/1999/xhtml"> ================= Class 2 (Предупреждения) =================</xhtml>
+-                        </Documentation>
+-                      </EnumValue>
+-                      <EnumValue>
+-                        <Name>ALF0_0_Emergency_Stop_Alarm</Name>
+-                        <Documentation>
+-                          <xhtml xmlns="http://www.w3.org/1999/xhtml"> ================= Class 3: Alarms (Алармы) =================</xhtml>
+-                        </Documentation>
+-                      </EnumValue>
+-                    </EnumValueDocumentation>
+-                  </data>
+-                  <data name="http://www.3s-software.com/plcopenxml/attributes" handleUnknown="implementation">
+-                    <Attributes>
+-                      <Attribute Name="qualified_only" Value="" />
+-                      <Attribute Name="strict" Value="" />
+-                    </Attributes>
+-                  </data>
+-                  <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-                    <ObjectId>629d6098-7f15-4517-b4dd-cc14f6ad3c40</ObjectId>
+-                  </data>
+-                </addData>
+-              </dataType>
+-            </data>
+-            <data name="http://www.3s-software.com/plcopenxml/datatype" handleUnknown="implementation">
+-              <dataType name="ST_TouchProbeStatus_Bits">
+-                <baseType>
+-                  <struct />
+-                </baseType>
+-                <addData>
+-                  <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-                    <ObjectId>dd5aecb6-fb96-41ff-97af-6207ad127ca7</ObjectId>
+-                  </data>
+-                </addData>
+-              </dataType>
+-            </data>
+-            <data name="http://www.3s-software.com/plcopenxml/datatype" handleUnknown="implementation">
+-              <dataType name="ST_TouchProbeFunction_Bits">
+-                <baseType>
+-                  <struct>
+-                    <variable name="TP1_Enable">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 0: 0=Disabled, 1=Enabled</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="TP1_TriggerMode">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 1: 0=Single, 1=Continuous</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="TP1_SignalSource">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 2: 0=DI signal, 1=Z signal</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Reserved_3">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 3</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="TP1_PosEdge_Enable">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 4: Разрешить захват по положительному фронту</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="TP1_NegEdge_Enable">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 5: Разрешить захват по отрицательному фронту</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Reserved_6">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 6</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Reserved_7">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 7</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="TP2_Enable">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 8</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="TP2_TriggerMode">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 9</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="TP2_SignalSource">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 10</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Reserved_11">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 11</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="TP2_PosEdge_Enable">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 12</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="TP2_NegEdge_Enable">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 13</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Reserved_14">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 14</xhtml>
+-                      </documentation>
+-                    </variable>
+-                    <variable name="Reserved_15">
+-                      <type>
+-                        <derived name="BIT" />
+-                      </type>
+-                      <documentation>
+-                        <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 15</xhtml>
+-                      </documentation>
+-                    </variable>
+-                  </struct>
+-                </baseType>
+-                <addData>
+-                  <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-                    <ObjectId>1f66ab67-9d33-495c-9802-a777441928df</ObjectId>
+-                  </data>
+-                </addData>
+-              </dataType>
+-            </data>
+-            <data name="http://www.3s-software.com/plcopenxml/pou" handleUnknown="implementation">
+-              <pou name="PLC_PRG" pouType="program">
+-                <interface />
+-                <body>
+-                  <ST>
+-                    <xhtml xmlns="http://www.w3.org/1999/xhtml">//Qumark:=GVL.Qumark;
+-</xhtml>
+-                  </ST>
+-                </body>
+-                <addData>
+-                  <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-                    <ObjectId>64045e63-8290-4ee2-ac36-ed90204edbeb</ObjectId>
+-                  </data>
+-                </addData>
+-              </pou>
+-            </data>
+-            <data name="http://www.3s-software.com/plcopenxml/union" handleUnknown="implementation">
+-              <union name="U_A6ControlWord">
+-                <variable name="CW">
+-                  <type>
+-                    <UINT />
+-                  </type>
+-                </variable>
+-                <variable name="Bits">
+-                  <type>
+-                    <derived name="ST_ControlWord_Bits" />
+-                  </type>
+-                </variable>
+-                <addData>
+-                  <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-                    <ObjectId>21f6bff5-aedc-4fa3-bb85-0913613bedbd</ObjectId>
+-                  </data>
+-                </addData>
+-              </union>
+-            </data>
+-            <data name="http://www.3s-software.com/plcopenxml/union" handleUnknown="implementation">
+-              <union name="U_A6StatusWord">
+-                <variable name="SW">
+-                  <type>
+-                    <UINT />
+-                  </type>
+-                </variable>
+-                <variable name="Bits">
+-                  <type>
+-                    <derived name="ST_StatusWord_Bits" />
+-                  </type>
+-                </variable>
+-                <addData>
+-                  <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-                    <ObjectId>46d4d81b-3c58-406f-938f-36d177191493</ObjectId>
+-                  </data>
+-                </addData>
+-              </union>
+-            </data>
+-            <data name="http://www.3s-software.com/plcopenxml/union" handleUnknown="implementation">
+-              <union name="U_A6TouchProbeFunction">
+-                <variable name="Func">
+-                  <type>
+-                    <UINT />
+-                  </type>
+-                </variable>
+-                <variable name="Bits">
+-                  <type>
+-                    <derived name="ST_TouchProbeFunction_Bits" />
+-                  </type>
+-                </variable>
+-                <addData>
+-                  <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-                    <ObjectId>5c006a8c-2f6e-40a5-8d6e-74469f894b52</ObjectId>
+-                  </data>
+-                </addData>
+-              </union>
+-            </data>
+-            <data name="http://www.3s-software.com/plcopenxml/union" handleUnknown="implementation">
+-              <union name="U_A6TouchProbeStatus">
+-                <variable name="SW">
+-                  <type>
+-                    <UINT />
+-                  </type>
+-                </variable>
+-                <variable name="Bits">
+-                  <type>
+-                    <derived name="ST_TouchProbeStatus_Bits" />
+-                  </type>
+-                </variable>
+-                <addData>
+-                  <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-                    <ObjectId>aedad91a-5852-4be7-8361-bf2633126450</ObjectId>
+-                  </data>
+-                </addData>
+-              </union>
+-            </data>
+-            <data name="http://www.3s-software.com/plcopenxml/libraries" handleUnknown="implementation">
+-              <Libraries>
+-                <Library Name="#Standard" Namespace="Standard" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="false" LinkAllContent="false" DefaultResolution="Standard, * (System)" />
+-                <Library Name="#BreakpointLogging" Namespace="BPLog" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="true" LinkAllContent="false" DefaultResolution="Breakpoint Logging Functions, 3.5.5.0 (3S - Smart Software Solutions GmbH)" />
+-                <Library Name="#SM3_Robotics" Namespace="SM3_Robotics" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="true" LinkAllContent="false" DefaultResolution="SM3_Robotics, 4.10.0.0 (3S - Smart Software Solutions GmbH)" />
+-                <Library Name="#SM3_Robotics_Visu" Namespace="SM3_Robotics_Visu" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="true" LinkAllContent="false" DefaultResolution="SM3_Robotics_Visu, 4.10.0.0 (3S - Smart Software Solutions GmbH)" />
+-                <Library Name="#SM3_Transformation" Namespace="TRAFO" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="true" LinkAllContent="false" DefaultResolution="SM3_Transformation, 4.10.0.0 (3S - Smart Software Solutions GmbH)" />
+-                <Library Name="#IecVarAccess" Namespace="IecVarAccessLibrary" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="true" LinkAllContent="false" DefaultResolution="IecVarAccess, 3.3.1.20 (System)" />
+-                <Library Name="#IoStandard" Namespace="IoStandard" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="true" LinkAllContent="true" DefaultResolution="IoStandard, 3.5.13.0 (System)" />
+-                <Library Name="#3SLicense" Namespace="_3S_LICENSE" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="true" LinkAllContent="false" DefaultResolution="3SLicense, 0.0.0.0 (3S - Smart Software Solutions GmbH)" ResolverGuid="97c3b452-d9fa-4ac2-9d0c-3d420aa6d95b" />
+-                <Library Name="#SM3_Basic" Namespace="SM3_Basic" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="true" LinkAllContent="false" DefaultResolution="SM3_Basic, 4.10.0.0 (3S - Smart Software Solutions GmbH)" />
+-                <Library Name="#SM3_CNC" Namespace="SM3_CNC" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="true" LinkAllContent="false" DefaultResolution="SM3_CNC, 4.10.0.0 (3S - Smart Software Solutions GmbH)" />
+-                <Library Name="#IoDrvEthernet" Namespace="IoDrvEthernet" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="true" LinkAllContent="false" DefaultResolution="IoDrvEthernet, 3.5.14.0 (3S - Smart Software Solutions GmbH)">
+-                  <Parameters>
+-                    <Parameter Name="TASK_PRIORITY" Value="15" />
+-                  </Parameters>
+-                </Library>
+-                <Library Name="#IODrvEtherCAT" Namespace="IoDrvEthercatLib" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="true" LinkAllContent="false" DefaultResolution="IODrvEtherCAT, 3.5.14.0 (3S - Smart Software Solutions GmbH)">
+-                  <Parameters>
+-                    <Parameter Name="ETC_MAX_SLAVES" Value="1024" />
+-                    <Parameter Name="MAX_ASYNC_MSG" Value="4" />
+-                    <Parameter Name="MAX_SDO_CHANNELS" Value="100" />
+-                    <Parameter Name="MAX_MAILBOX_CHANNELS" Value="100" />
+-                    <Parameter Name="MAX_STATUS_CYCLE_DELAY" Value="3" />
+-                    <Parameter Name="ETC_FOE_TIMEOUT" Value="10000" />
+-                  </Parameters>
+-                </Library>
+-                <Library Name="#CAA Device Diagnosis" Namespace="DED" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="true" LinkAllContent="false" DefaultResolution="CAA Device Diagnosis, 3.5.14.0 (CAA Technical Workgroup)" />
+-                <Library Name="#System_VisuElems" Namespace="VisuElems" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="true" LinkAllContent="false" DefaultResolution="VisuElems, 3.5.14.30 (System)" ResolverGuid="2717eb6a-dd07-4c66-8d8d-cacebd7b18ae" />
+-                <Library Name="#System_VisuElemMeter" Namespace="VisuElemMeter" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="true" LinkAllContent="false" DefaultResolution="VisuElemMeter, 3.5.14.10 (System)" ResolverGuid="2717eb6a-dd07-4c66-8d8d-cacebd7b18ae" />
+-                <Library Name="#System_VisuElemsSpecialControls" Namespace="VisuElemsSpecialControls" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="true" LinkAllContent="false" DefaultResolution="VisuElemsSpecialControls, 3.5.14.0 (System)" ResolverGuid="2717eb6a-dd07-4c66-8d8d-cacebd7b18ae" />
+-                <Library Name="#System_VisuElemsWinControls" Namespace="VisuElemsWinControls" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="true" LinkAllContent="false" DefaultResolution="VisuElemsWinControls, 3.5.14.30 (System)" ResolverGuid="2717eb6a-dd07-4c66-8d8d-cacebd7b18ae" />
+-                <Library Name="#System_VisuElemTextEditor" Namespace="VisuElemTextEditor" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="true" LinkAllContent="false" DefaultResolution="VisuElemTextEditor, 3.5.14.0 (System)" ResolverGuid="2717eb6a-dd07-4c66-8d8d-cacebd7b18ae" />
+-                <Library Name="#System_VisuElemTrace" Namespace="VisuElemTrace" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="true" LinkAllContent="false" DefaultResolution="VisuElemTrace, 3.5.14.0 (System)" ResolverGuid="2717eb6a-dd07-4c66-8d8d-cacebd7b18ae" />
+-                <Library Name="#System_VisuNativeControl" Namespace="VisuNativeControl" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="true" LinkAllContent="false" DefaultResolution="VisuNativeControl, 3.5.14.0 (System)" ResolverGuid="2717eb6a-dd07-4c66-8d8d-cacebd7b18ae" />
+-                <Library Name="#System_VisuElemsAlarm" Namespace="VisuElemsAlarm" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="true" LinkAllContent="false" DefaultResolution="VisuElemsAlarm, 3.5.14.30 (System)" ResolverGuid="2717eb6a-dd07-4c66-8d8d-cacebd7b18ae" />
+-                <Library Name="#System_VisuElemCamDisplayer" Namespace="VisuElemCamDisplayer" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="true" LinkAllContent="false" DefaultResolution="VisuElemCamDisplayer, 3.5.14.0 (System)" ResolverGuid="2717eb6a-dd07-4c66-8d8d-cacebd7b18ae">
+-                  <Parameters>
+-                    <Parameter Name="GC_POINTS_PER_CAM" Value="100" />
+-                  </Parameters>
+-                </Library>
+-                <Library Name="#System_VisuElem3DPath" Namespace="VisuElem3DPath" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="true" LinkAllContent="false" DefaultResolution="VisuElem3DPath, 3.5.14.0 (System)" ResolverGuid="2717eb6a-dd07-4c66-8d8d-cacebd7b18ae">
+-                  <Parameters>
+-                    <Parameter Name="GC_POINTS_PER_POLYGON" Value="100" />
+-                  </Parameters>
+-                </Library>
+-                <Library Name="#System_VisuElemsDateTime" Namespace="VisuElemsDateTime" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="true" LinkAllContent="false" DefaultResolution="VisuElemsDateTime, 3.5.14.0 (System)" ResolverGuid="2717eb6a-dd07-4c66-8d8d-cacebd7b18ae" />
+-                <Library Name="#System_VisuElemXYChart" Namespace="VisuElemXYChart" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="true" LinkAllContent="false" DefaultResolution="VisuElemXYChart, 3.5.14.0 (System)" ResolverGuid="2717eb6a-dd07-4c66-8d8d-cacebd7b18ae" />
+-                <Library Name="#system_visuinputs" Namespace="visuinputs" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="true" LinkAllContent="false" DefaultResolution="visuinputs, 3.5.14.0 (system)" ResolverGuid="2717eb6a-dd07-4c66-8d8d-cacebd7b18ae" />
+-                <addData>
+-                  <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-                    <ObjectId>d0580de0-beec-4e05-a9b0-8d6ee71bdeb5</ObjectId>
+-                  </data>
+-                </addData>
+-              </Libraries>
+-            </data>
+             <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+               <ObjectId>190a155a-8ac0-4ddf-8896-2c20618b7f59</ObjectId>
+             </data>
+@@ -5414,7 +5460,6 @@
+                                       </Value>
+                                       <Name>Controlword</Name>
+                                       <Description>Controlword</Description>
+-                                      <Mapping>Application.HW.IO.Servo.Axis_Move.Out.Control_word.CW</Mapping>
+                                     </Parameter>
+                                     <Parameter ParameterId="16777219" type="std:DINT">
+                                       <Attributes channel="output" />
+@@ -5454,7 +5499,6 @@
+                                       </Value>
+                                       <Name>Target position</Name>
+                                       <Description>Target position</Description>
+-                                      <Mapping>Application.HW.IO.Servo.Axis_Move.Out.Target_position</Mapping>
+                                     </Parameter>
+                                     <Parameter ParameterId="16777220" type="std:DINT">
+                                       <Attributes channel="output" />
+@@ -5494,7 +5538,6 @@
+                                       </Value>
+                                       <Name>Target velocity</Name>
+                                       <Description>Target velocity</Description>
+-                                      <Mapping>Application.HW.IO.Servo.Axis_Move.Out.Target_velocity</Mapping>
+                                     </Parameter>
+                                     <Parameter ParameterId="16777221" type="std:INT">
+                                       <Attributes channel="output" />
+@@ -5518,7 +5561,6 @@
+                                       </Value>
+                                       <Name>Target torque</Name>
+                                       <Description>Target torque</Description>
+-                                      <Mapping>Application.HW.IO.Servo.Axis_Move.Out.Target_torque</Mapping>
+                                     </Parameter>
+                                     <Parameter ParameterId="16777222" type="std:SINT">
+                                       <Attributes channel="output" />
+@@ -5534,7 +5576,6 @@
+                                       </Value>
+                                       <Name>Modes of operation</Name>
+                                       <Description>Modes of operation</Description>
+-                                      <Mapping>Application.HW.IO.Servo.Axis_Move.Out.Modes_of_operation</Mapping>
+                                     </Parameter>
+                                     <Parameter ParameterId="16777223" type="std:UINT">
+                                       <Attributes channel="output" />
+@@ -5558,7 +5599,6 @@
+                                       </Value>
+                                       <Name>Touch probe function</Name>
+                                       <Description>Touch probe function</Description>
+-                                      <Mapping>Application.HW.IO.Servo.Axis_Move.Out.Touch_probe_function.Func</Mapping>
+                                     </Parameter>
+                                     <Parameter ParameterId="16777224" type="std:UDINT">
+                                       <Attributes channel="output" />
+@@ -5598,7 +5638,6 @@
+                                       </Value>
+                                       <Name>Max profile velocity</Name>
+                                       <Description>Max profile velocity</Description>
+-                                      <Mapping>Application.HW.IO.Servo.Axis_Move.Out.Max_profile_velocity</Mapping>
+                                     </Parameter>
+                                     <Parameter ParameterId="16777225" type="std:UINT">
+                                       <Attributes channel="output" />
+@@ -5622,7 +5661,6 @@
+                                       </Value>
+                                       <Name>Positive torque limit value</Name>
+                                       <Description>Positive torque limit value</Description>
+-                                      <Mapping>Application.HW.IO.Servo.Axis_Move.Out.Positive_torque_limit</Mapping>
+                                     </Parameter>
+                                     <Parameter ParameterId="16777226" type="std:UINT">
+                                       <Attributes channel="output" />
+@@ -5646,7 +5684,6 @@
+                                       </Value>
+                                       <Name>Negative torque limit value</Name>
+                                       <Description>Negative torque limit value</Description>
+-                                      <Mapping>Application.HW.IO.Servo.Axis_Move.Out.Negative_torque_limit</Mapping>
+                                     </Parameter>
+                                     <Parameter ParameterId="33554434" type="std:UINT">
+                                       <Attributes channel="input" />
+@@ -5670,7 +5707,6 @@
+                                       </Value>
+                                       <Name>Error code</Name>
+                                       <Description>Error code</Description>
+-                                      <Mapping>Application.HW.IO.Servo.Axis_Move.In.Error_code</Mapping>
+                                     </Parameter>
+                                     <Parameter ParameterId="33554435" type="std:UINT">
+                                       <Attributes channel="input" />
+@@ -5694,7 +5730,6 @@
+                                       </Value>
+                                       <Name>Statusword</Name>
+                                       <Description>Statusword</Description>
+-                                      <Mapping>Application.HW.IO.Servo.Axis_Move.In.Statusword.SW</Mapping>
+                                     </Parameter>
+                                     <Parameter ParameterId="33554436" type="std:DINT">
+                                       <Attributes channel="input" />
+@@ -5734,7 +5769,6 @@
+                                       </Value>
+                                       <Name>Position actual value</Name>
+                                       <Description>Position actual value</Description>
+-                                      <Mapping>Application.HW.IO.Servo.Axis_Move.In.Position_actual_value</Mapping>
+                                     </Parameter>
+                                     <Parameter ParameterId="33554437" type="std:INT">
+                                       <Attributes channel="input" />
+@@ -5758,7 +5792,6 @@
+                                       </Value>
+                                       <Name>Torque actual value</Name>
+                                       <Description>Torque actual value</Description>
+-                                      <Mapping>Application.HW.IO.Servo.Axis_Move.In.Torque_actual_value</Mapping>
+                                     </Parameter>
+                                     <Parameter ParameterId="33554438" type="std:SINT">
+                                       <Attributes channel="input" />
+@@ -5774,7 +5807,6 @@
+                                       </Value>
+                                       <Name>Modes of operation display</Name>
+                                       <Description>Modes of operation display</Description>
+-                                      <Mapping>Application.HW.IO.Servo.Axis_Move.In.Modes_of_operation_disp</Mapping>
+                                     </Parameter>
+                                     <Parameter ParameterId="33554439" type="std:DINT">
+                                       <Attributes channel="input" />
+@@ -5814,7 +5846,6 @@
+                                       </Value>
+                                       <Name>Following error actual value</Name>
+                                       <Description>Following error actual value</Description>
+-                                      <Mapping>Application.HW.IO.Servo.Axis_Move.In.Following_error_actual</Mapping>
+                                     </Parameter>
+                                     <Parameter ParameterId="33554440" type="std:UINT">
+                                       <Attributes channel="input" />
+@@ -5838,7 +5869,6 @@
+                                       </Value>
+                                       <Name>Touch probe status</Name>
+                                       <Description>Touch probe status</Description>
+-                                      <Mapping>Application.HW.IO.Servo.Axis_Move.In.Touch_probe_status.SW</Mapping>
+                                     </Parameter>
+                                     <Parameter ParameterId="33554441" type="std:DINT">
+                                       <Attributes channel="input" />
+@@ -5878,7 +5908,6 @@
+                                       </Value>
+                                       <Name>Touch probe pos1 pos value</Name>
+                                       <Description>Touch probe pos1 pos value</Description>
+-                                      <Mapping>Application.HW.IO.Servo.Axis_Move.In.Touch_probe_pos1_value</Mapping>
+                                     </Parameter>
+                                     <Parameter ParameterId="33554442" type="std:DINT">
+                                       <Attributes channel="input" />
+@@ -5918,7 +5947,6 @@
+                                       </Value>
+                                       <Name>Touch probe pos2 pos value</Name>
+                                       <Description>Touch probe pos2 pos value</Description>
+-                                      <Mapping>Application.HW.IO.Servo.Axis_Move.In.Touch_probe_pos2_value</Mapping>
+                                     </Parameter>
+                                     <Parameter ParameterId="33554443" type="std:DINT">
+                                       <Attributes channel="input" />
+@@ -5958,7 +5986,6 @@
+                                       </Value>
+                                       <Name>Velocity actual value</Name>
+                                       <Description>Velocity actual value</Description>
+-                                      <Mapping>Application.HW.IO.Servo.Axis_Move.In.Velocity_actual_value</Mapping>
+                                     </Parameter>
+                                   </HostParameterSet>
+                                 </Connector>
+@@ -6036,4 +6063,4 @@
+       </ProjectStructure>
+     </data>
+   </addData>
+-</project>
+\ No newline at end of file
++</project>
+-- 
+2.39.5
+
+
+From e45bcbe4c26f039dbcbdb9c86b33db5fabc03f28 Mon Sep 17 00:00:00 2001
+From: "qwen.ai[bot]" <qwenlm-intl@service.alibaba.com>
+Date: Wed, 7 Oct 2026 21:52:04 +0000
+Subject: [PATCH 2/3] Fix PLCopenXML schema violation: unwrap nested
+ <datatype>/<pou> wrappers, restore per-object ObjectId addData, replace
+ undefined BIT derived type with BOOL
+
+---
+ test3 HCFA_Q1 optional.xml | 284 +++++++++----------------------------
+ 1 file changed, 69 insertions(+), 215 deletions(-)
+
+diff --git a/test3 HCFA_Q1 optional.xml b/test3 HCFA_Q1 optional.xml
+index 8674913..195a2dd 100644
+--- a/test3 HCFA_Q1 optional.xml	
++++ b/test3 HCFA_Q1 optional.xml	
+@@ -23,13 +23,7 @@
+   </contentHeader>
+   <types>
+     <dataTypes>
+-    <datatype name="ST_A6Control">
+-      <addData>
+-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-          <ObjectId>176e60e4-dc06-4c57-8e92-25ce06e25d87</ObjectId>
+-        </data>
+-      </addData>
+-    <dataType name="ST_A6Control">
++<dataType name="ST_A6Control">
+       <baseType>
+         <struct>
+           <variable name="Control_word">
+@@ -112,14 +106,7 @@
+         </data>
+       </addData>
+     </dataType>
+-    </datatype>
+-    <datatype name="ST_A6Status">
+-      <addData>
+-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-          <ObjectId>9efa9f6e-f38d-4d8e-93ac-206ac8aa1d90</ObjectId>
+-        </data>
+-      </addData>
+-    <dataType name="ST_A6Status">
++<dataType name="ST_A6Status">
+       <baseType>
+         <struct>
+           <variable name="Error_code">
+@@ -210,14 +197,7 @@
+         </data>
+       </addData>
+     </dataType>
+-    </datatype>
+-    <datatype name="ST_A6">
+-      <addData>
+-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-          <ObjectId>45ca426d-ce48-451d-971b-9e41c1f4ddc7</ObjectId>
+-        </data>
+-      </addData>
+-    <dataType name="ST_A6">
++<dataType name="ST_A6">
+       <baseType>
+         <struct>
+           <variable name="In">
+@@ -238,14 +218,7 @@
+         </data>
+       </addData>
+     </dataType>
+-    </datatype>
+-    <datatype name="HW_ALL">
+-      <addData>
+-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-          <ObjectId>63de8f70-e5df-4330-a8d8-cf725f6d34ad</ObjectId>
+-        </data>
+-      </addData>
+-    <dataType name="HW_ALL">
++<dataType name="HW_ALL">
+       <baseType>
+         <struct>
+           <variable name="DI">
+@@ -276,14 +249,7 @@
+         </data>
+       </addData>
+     </dataType>
+-    </datatype>
+-    <datatype name="DI">
+-      <addData>
+-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-          <ObjectId>311b57e4-651a-45f0-b9f8-9ac0eac27592</ObjectId>
+-        </data>
+-      </addData>
+-    <dataType name="DI">
++<dataType name="DI">
+       <baseType>
+         <struct />
+       </baseType>
+@@ -293,14 +259,7 @@
+         </data>
+       </addData>
+     </dataType>
+-    </datatype>
+-    <datatype name="Dout">
+-      <addData>
+-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-          <ObjectId>c7b5456f-6c4f-4592-a558-b3db656c49d3</ObjectId>
+-        </data>
+-      </addData>
+-    <dataType name="Dout">
++<dataType name="Dout">
+       <baseType>
+         <struct />
+       </baseType>
+@@ -310,14 +269,7 @@
+         </data>
+       </addData>
+     </dataType>
+-    </datatype>
+-    <datatype name="AI">
+-      <addData>
+-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-          <ObjectId>d8a0297d-57f1-4136-942e-33dd1531b6b9</ObjectId>
+-        </data>
+-      </addData>
+-    <dataType name="AI">
++<dataType name="AI">
+       <baseType>
+         <struct />
+       </baseType>
+@@ -327,14 +279,7 @@
+         </data>
+       </addData>
+     </dataType>
+-    </datatype>
+-    <datatype name="AO">
+-      <addData>
+-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-          <ObjectId>34bc9537-ad86-4fd9-9d72-6d799533e684</ObjectId>
+-        </data>
+-      </addData>
+-    <dataType name="AO">
++<dataType name="AO">
+       <baseType>
+         <struct />
+       </baseType>
+@@ -344,14 +289,7 @@
+         </data>
+       </addData>
+     </dataType>
+-    </datatype>
+-    <datatype name="Servo">
+-      <addData>
+-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-          <ObjectId>b2643b84-3378-4963-8a01-e5f254bf3fda</ObjectId>
+-        </data>
+-      </addData>
+-    <dataType name="Servo">
++<dataType name="Servo">
+       <baseType>
+         <struct>
+           <variable name="Axis_Move">
+@@ -377,14 +315,7 @@
+         </data>
+       </addData>
+     </dataType>
+-    </datatype>
+-    <datatype name="E_ModesOfOperation">
+-      <addData>
+-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-          <ObjectId>d3d6e5cf-5d08-46b9-840d-1215cc27e49a</ObjectId>
+-        </data>
+-      </addData>
+-    <dataType name="E_ModesOfOperation">
++<dataType name="E_ModesOfOperation">
+       <baseType>
+         <enum>
+           <values>
+@@ -463,19 +394,12 @@
+         </data>
+       </addData>
+     </dataType>
+-    </datatype>
+-    <datatype name="ST_ControlWord_Bits">
+-      <addData>
+-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-          <ObjectId>489416d9-0200-46f9-81ed-bb42c3752258</ObjectId>
+-        </data>
+-      </addData>
+-    <dataType name="ST_ControlWord_Bits">
++<dataType name="ST_ControlWord_Bits">
+       <baseType>
+         <struct>
+           <variable name="Switch_on">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 0</xhtml>
+@@ -483,7 +407,7 @@
+           </variable>
+           <variable name="Enable_voltage">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 1</xhtml>
+@@ -491,7 +415,7 @@
+           </variable>
+           <variable name="Quick_stop">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 2 (0 = Quick stop active)</xhtml>
+@@ -499,7 +423,7 @@
+           </variable>
+           <variable name="Enable_operation">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 3</xhtml>
+@@ -507,7 +431,7 @@
+           </variable>
+           <variable name="Op_mode_specific_1">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 4 (New set-point / Enable ramp)</xhtml>
+@@ -515,7 +439,7 @@
+           </variable>
+           <variable name="Op_mode_specific_2">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 5 (Change set immediately / Unlock ramp)</xhtml>
+@@ -523,7 +447,7 @@
+           </variable>
+           <variable name="Op_mode_specific_3">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 6 (Absolute / Relative)</xhtml>
+@@ -531,7 +455,7 @@
+           </variable>
+           <variable name="Fault_reset">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 7 (0-&gt;1 = Reset fault)</xhtml>
+@@ -539,7 +463,7 @@
+           </variable>
+           <variable name="Halt">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 8</xhtml>
+@@ -547,7 +471,7 @@
+           </variable>
+           <variable name="Op_mode_specific_4">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 9</xhtml>
+@@ -555,7 +479,7 @@
+           </variable>
+           <variable name="Reserved_10">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 10</xhtml>
+@@ -563,7 +487,7 @@
+           </variable>
+           <variable name="Manufacturer_1">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 11</xhtml>
+@@ -571,7 +495,7 @@
+           </variable>
+           <variable name="Manufacturer_2">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 12</xhtml>
+@@ -579,7 +503,7 @@
+           </variable>
+           <variable name="Manufacturer_3">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 13</xhtml>
+@@ -587,7 +511,7 @@
+           </variable>
+           <variable name="Manufacturer_4">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 14</xhtml>
+@@ -595,7 +519,7 @@
+           </variable>
+           <variable name="Manufacturer_5">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 15</xhtml>
+@@ -609,19 +533,12 @@
+         </data>
+       </addData>
+     </dataType>
+-    </datatype>
+-    <datatype name="ST_StatusWord_Bits">
+-      <addData>
+-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-          <ObjectId>0b524d6c-408b-479a-9a06-a1e4c384cda0</ObjectId>
+-        </data>
+-      </addData>
+-    <dataType name="ST_StatusWord_Bits">
++<dataType name="ST_StatusWord_Bits">
+       <baseType>
+         <struct>
+           <variable name="Ready_to_switch_on">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 0</xhtml>
+@@ -629,7 +546,7 @@
+           </variable>
+           <variable name="Switched_on">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 1</xhtml>
+@@ -637,7 +554,7 @@
+           </variable>
+           <variable name="Operation_enabled">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 2</xhtml>
+@@ -645,7 +562,7 @@
+           </variable>
+           <variable name="Fault">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 3</xhtml>
+@@ -653,7 +570,7 @@
+           </variable>
+           <variable name="Voltage_enabled">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 4</xhtml>
+@@ -661,7 +578,7 @@
+           </variable>
+           <variable name="Quick_stop">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 5 (0 = Quick stop active)</xhtml>
+@@ -669,7 +586,7 @@
+           </variable>
+           <variable name="Switch_on_disabled">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 6</xhtml>
+@@ -677,7 +594,7 @@
+           </variable>
+           <variable name="Warning">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 7</xhtml>
+@@ -685,7 +602,7 @@
+           </variable>
+           <variable name="Manufacturer_1">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 8</xhtml>
+@@ -693,7 +610,7 @@
+           </variable>
+           <variable name="Remote">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 9</xhtml>
+@@ -701,7 +618,7 @@
+           </variable>
+           <variable name="Target_reached">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 10 (Position/Speed/Torque reached)</xhtml>
+@@ -709,7 +626,7 @@
+           </variable>
+           <variable name="Internal_limit_active">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 11</xhtml>
+@@ -717,7 +634,7 @@
+           </variable>
+           <variable name="Op_mode_specific_1">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 12 (Set-point acknowledge / Speed)</xhtml>
+@@ -725,7 +642,7 @@
+           </variable>
+           <variable name="Op_mode_specific_2">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 13 (Following error)</xhtml>
+@@ -733,7 +650,7 @@
+           </variable>
+           <variable name="Manufacturer_2">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 14</xhtml>
+@@ -741,7 +658,7 @@
+           </variable>
+           <variable name="Manufacturer_3">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 15</xhtml>
+@@ -755,14 +672,7 @@
+         </data>
+       </addData>
+     </dataType>
+-    </datatype>
+-    <datatype name="E_ErrorCode">
+-      <addData>
+-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-          <ObjectId>629d6098-7f15-4517-b4dd-cc14f6ad3c40</ObjectId>
+-        </data>
+-      </addData>
+-    <dataType name="E_ErrorCode">
++<dataType name="E_ErrorCode">
+       <baseType>
+         <enum>
+           <values>
+@@ -965,14 +875,7 @@
+         </data>
+       </addData>
+     </dataType>
+-    </datatype>
+-    <datatype name="ST_TouchProbeStatus_Bits">
+-      <addData>
+-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-          <ObjectId>dd5aecb6-fb96-41ff-97af-6207ad127ca7</ObjectId>
+-        </data>
+-      </addData>
+-    <dataType name="ST_TouchProbeStatus_Bits">
++<dataType name="ST_TouchProbeStatus_Bits">
+       <baseType>
+         <struct />
+       </baseType>
+@@ -982,19 +885,12 @@
+         </data>
+       </addData>
+     </dataType>
+-    </datatype>
+-    <datatype name="ST_TouchProbeFunction_Bits">
+-      <addData>
+-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-          <ObjectId>1f66ab67-9d33-495c-9802-a777441928df</ObjectId>
+-        </data>
+-      </addData>
+-    <dataType name="ST_TouchProbeFunction_Bits">
++<dataType name="ST_TouchProbeFunction_Bits">
+       <baseType>
+         <struct>
+           <variable name="TP1_Enable">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 0: 0=Disabled, 1=Enabled</xhtml>
+@@ -1002,7 +898,7 @@
+           </variable>
+           <variable name="TP1_TriggerMode">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 1: 0=Single, 1=Continuous</xhtml>
+@@ -1010,7 +906,7 @@
+           </variable>
+           <variable name="TP1_SignalSource">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 2: 0=DI signal, 1=Z signal</xhtml>
+@@ -1018,7 +914,7 @@
+           </variable>
+           <variable name="Reserved_3">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 3</xhtml>
+@@ -1026,7 +922,7 @@
+           </variable>
+           <variable name="TP1_PosEdge_Enable">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 4: Разрешить захват по положительному фронту</xhtml>
+@@ -1034,7 +930,7 @@
+           </variable>
+           <variable name="TP1_NegEdge_Enable">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 5: Разрешить захват по отрицательному фронту</xhtml>
+@@ -1042,7 +938,7 @@
+           </variable>
+           <variable name="Reserved_6">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 6</xhtml>
+@@ -1050,7 +946,7 @@
+           </variable>
+           <variable name="Reserved_7">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 7</xhtml>
+@@ -1058,7 +954,7 @@
+           </variable>
+           <variable name="TP2_Enable">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 8</xhtml>
+@@ -1066,7 +962,7 @@
+           </variable>
+           <variable name="TP2_TriggerMode">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 9</xhtml>
+@@ -1074,7 +970,7 @@
+           </variable>
+           <variable name="TP2_SignalSource">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 10</xhtml>
+@@ -1082,7 +978,7 @@
+           </variable>
+           <variable name="Reserved_11">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 11</xhtml>
+@@ -1090,7 +986,7 @@
+           </variable>
+           <variable name="TP2_PosEdge_Enable">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 12</xhtml>
+@@ -1098,7 +994,7 @@
+           </variable>
+           <variable name="TP2_NegEdge_Enable">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 13</xhtml>
+@@ -1106,7 +1002,7 @@
+           </variable>
+           <variable name="Reserved_14">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 14</xhtml>
+@@ -1114,7 +1010,7 @@
+           </variable>
+           <variable name="Reserved_15">
+             <type>
+-              <derived name="BIT" />
++              <BOOL />
+             </type>
+             <documentation>
+               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 15</xhtml>
+@@ -1128,14 +1024,7 @@
+         </data>
+       </addData>
+     </dataType>
+-    </datatype>
+-    <union name="U_A6ControlWord">
+-      <addData>
+-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-          <ObjectId>21f6bff5-aedc-4fa3-bb85-0913613bedbd</ObjectId>
+-        </data>
+-      </addData>
+-    <union name="U_A6ControlWord">
++<union name="U_A6ControlWord">
+       <variable name="CW">
+         <type>
+           <UINT />
+@@ -1152,14 +1041,7 @@
+         </data>
+       </addData>
+     </union>
+-    </union>
+-    <union name="U_A6StatusWord">
+-      <addData>
+-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-          <ObjectId>46d4d81b-3c58-406f-938f-36d177191493</ObjectId>
+-        </data>
+-      </addData>
+-    <union name="U_A6StatusWord">
++<union name="U_A6StatusWord">
+       <variable name="SW">
+         <type>
+           <UINT />
+@@ -1176,14 +1058,7 @@
+         </data>
+       </addData>
+     </union>
+-    </union>
+-    <union name="U_A6TouchProbeFunction">
+-      <addData>
+-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-          <ObjectId>5c006a8c-2f6e-40a5-8d6e-74469f894b52</ObjectId>
+-        </data>
+-      </addData>
+-    <union name="U_A6TouchProbeFunction">
++<union name="U_A6TouchProbeFunction">
+       <variable name="Func">
+         <type>
+           <UINT />
+@@ -1200,14 +1075,7 @@
+         </data>
+       </addData>
+     </union>
+-    </union>
+-    <union name="U_A6TouchProbeStatus">
+-      <addData>
+-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-          <ObjectId>aedad91a-5852-4be7-8361-bf2633126450</ObjectId>
+-        </data>
+-      </addData>
+-    <union name="U_A6TouchProbeStatus">
++<union name="U_A6TouchProbeStatus">
+       <variable name="SW">
+         <type>
+           <UINT />
+@@ -1224,30 +1092,16 @@
+         </data>
+       </addData>
+     </union>
+-    </union>
+     </dataTypes>
+     <pous>
+-    <pou name="PLC_PRG">
+-      <addData>
+-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-          <ObjectId>64045e63-8290-4ee2-ac36-ed90204edbeb</ObjectId>
+-        </data>
+-      </addData>
+-    <pou name="PLC_PRG" pouType="program">
++<pou name="PLC_PRG" pouType="program" objectid="9d230b92-f347-431e-a39f-4e5695f12a96">
+       <interface />
+       <body>
+         <ST>
+           <xhtml xmlns="http://www.w3.org/1999/xhtml">//Qumark:=GVL.Qumark;
+     </xhtml>
+         </ST>
+-      </body>
+-      <addData>
+-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+-          <ObjectId>64045e63-8290-4ee2-ac36-ed90204edbeb</ObjectId>
+-        </data>
+-      </addData>
+-    </pou>
+-    </pou>
++      </body></pou>
+     </pous>
+   </types>
+   <instances>
+-- 
+2.39.5
+
+
+From 7814548e299612cdc476e3ca5df1cd085f120977 Mon Sep 17 00:00:00 2001
+From: "qwen.ai[bot]" <qwenlm-intl@service.alibaba.com>
+Date: Wed, 7 Oct 2026 21:55:10 +0000
+Subject: [PATCH 3/3] Ignore local patch artifact
+
+---
+ .gitignore | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/.gitignore b/.gitignore
+index cfa61fd..7f8e14e 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -1 +1 @@
+-(empty)
+\ No newline at end of file
++(empty)plcopen-fix.patch
+-- 
+2.39.5
+
