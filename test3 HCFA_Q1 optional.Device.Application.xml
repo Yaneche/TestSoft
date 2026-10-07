@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Symbolconfiguration xmlns="http://www.3s-software.com/schemas/Symbolconfiguration.xsd">
+  <Header>
+    <Version>3.5.14.0</Version>
+    <SymbolConfigObject version="3.5.14.0" runtimeid="3.5.14.10" libversion="3.5.14.0" compiler="3.5.14.10" lmm="3.5.14.0" profile="CODESYS V3.5 SP14 Patch 1+" settings="SupportOPCUA, XmlIncludeComments, LayoutCalculator=OptimizedClientSideLayoutCalculator" />
+    <ProjectInfo name="test3 HCFA_Q1 optional" devicename="Device" appname="Application" />
+  </Header>
+  <TypeList>
+    <TypeSimple name="T_BIT_X_0" size="1" swapsize="0" typeclass="Bit" iecname="BIT" bitoffset="0" />
+    <TypeSimple name="T_BIT_X_1" size="1" swapsize="0" typeclass="Bit" iecname="BIT" bitoffset="1" />
+    <TypeSimple name="T_BIT_X_2" size="1" swapsize="0" typeclass="Bit" iecname="BIT" bitoffset="2" />
+    <TypeSimple name="T_BIT_X_3" size="1" swapsize="0" typeclass="Bit" iecname="BIT" bitoffset="3" />
+    <TypeSimple name="T_BIT_X_4" size="1" swapsize="0" typeclass="Bit" iecname="BIT" bitoffset="4" />
+    <TypeSimple name="T_BIT_X_5" size="1" swapsize="0" typeclass="Bit" iecname="BIT" bitoffset="5" />
+    <TypeSimple name="T_BIT_X_6" size="1" swapsize="0" typeclass="Bit" iecname="BIT" bitoffset="6" />
+    <TypeSimple name="T_BIT_X_7" size="1" swapsize="0" typeclass="Bit" iecname="BIT" bitoffset="7" />
+    <TypeSimple name="T_INT" size="2" swapsize="2" typeclass="Int" iecname="INT" />
+    <TypeSimple name="T_UINT" size="2" swapsize="2" typeclass="UInt" iecname="UINT" />
+    <TypeUserDef name="T_CW_asBit" size="16" nativesize="2" typeclass="Userdef" pouclass="STRUCTURE" iecname="CW_asBit">
+      <UserDefElement iecname="Stop" type="T_BIT_X_0" byteoffset="0" vartype="VAR" />
+      <UserDefElement iecname="Start" type="T_BIT_X_1" byteoffset="1" vartype="VAR" />
+      <UserDefElement iecname="StopMode_OFF2" type="T_BIT_X_2" byteoffset="2" vartype="VAR" />
+      <UserDefElement iecname="StopMode_OFF3" type="T_BIT_X_3" byteoffset="3" vartype="VAR" />
+      <UserDefElement iecname="Local_ctrl" type="T_BIT_X_4" byteoffset="4" vartype="VAR" />
+      <UserDefElement iecname="StopMode_ramp" type="T_BIT_X_5" byteoffset="5" vartype="VAR" />
+      <UserDefElement iecname="StopMode_coast" type="T_BIT_X_6" byteoffset="6" vartype="VAR" />
+      <UserDefElement iecname="Run_enable" type="T_BIT_X_7" byteoffset="7" vartype="VAR" />
+      <UserDefElement iecname="Reset" type="T_BIT_X_0" byteoffset="8" vartype="VAR" />
+      <UserDefElement iecname="Jog1" type="T_BIT_X_1" byteoffset="9" vartype="VAR" />
+      <UserDefElement iecname="Jog2" type="T_BIT_X_2" byteoffset="10" vartype="VAR" />
+      <UserDefElement iecname="Remote" type="T_BIT_X_3" byteoffset="11" vartype="VAR" />
+      <UserDefElement iecname="Ramp_In_0" type="T_BIT_X_4" byteoffset="12" vartype="VAR" />
+      <UserDefElement iecname="Ramp_hold" type="T_BIT_X_5" byteoffset="13" vartype="VAR" />
+      <UserDefElement iecname="RampOut_0" type="T_BIT_X_6" byteoffset="14" vartype="VAR" />
+      <UserDefElement iecname="Ext2_sel" type="T_BIT_X_7" byteoffset="15" vartype="VAR" />
+    </TypeUserDef>
+    <TypeUserDef name="T_SW_asBit" size="16" nativesize="2" typeclass="Userdef" pouclass="STRUCTURE" iecname="SW_asBit">
+      <UserDefElement iecname="Ready" type="T_BIT_X_0" byteoffset="0" vartype="VAR" />
+      <UserDefElement iecname="Fault" type="T_BIT_X_1" byteoffset="1" vartype="VAR" />
+      <UserDefElement iecname="Warning" type="T_BIT_X_2" byteoffset="2" vartype="VAR" />
+      <UserDefElement iecname="Limiting" type="T_BIT_X_3" byteoffset="3" vartype="VAR" />
+      <UserDefElement iecname="Runing" type="T_BIT_X_4" byteoffset="4" vartype="VAR" />
+      <UserDefElement iecname="Rev_REQ" type="T_BIT_X_5" byteoffset="5" vartype="VAR" />
+      <UserDefElement iecname="Start_req" type="T_BIT_X_6" byteoffset="6" vartype="VAR" />
+      <UserDefElement iecname="Stop_req" type="T_BIT_X_7" byteoffset="7" vartype="VAR" />
+      <UserDefElement iecname="JOG_active" type="T_BIT_X_0" byteoffset="8" vartype="VAR" />
+      <UserDefElement iecname="In_stop_req" type="T_BIT_X_1" byteoffset="9" vartype="VAR" />
+      <UserDefElement iecname="EXT_run_enable" type="T_BIT_X_2" byteoffset="10" vartype="VAR" />
+      <UserDefElement iecname="JOG2" type="T_BIT_X_3" byteoffset="11" vartype="VAR" />
+      <UserDefElement iecname="DC_charged" type="T_BIT_X_4" byteoffset="12" vartype="VAR" />
+      <UserDefElement iecname="Chg_rly_closed" type="T_BIT_X_5" byteoffset="13" vartype="VAR" />
+      <UserDefElement iecname="Ext2" type="T_BIT_X_6" byteoffset="14" vartype="VAR" />
+      <UserDefElement iecname="Loc_ctrl" type="T_BIT_X_7" byteoffset="15" vartype="VAR" />
+    </TypeUserDef>
+    <TypeUserDef name="T_uQm_CW" size="0" nativesize="2" typeclass="Userdef" pouclass="UNION" iecname="uQm_CW">
+      <UserDefElement iecname="CW" type="T_UINT" byteoffset="-1" vartype="VAR" />
+      <UserDefElement iecname="CW_AsBit" type="T_CW_asBit" byteoffset="-1" vartype="VAR" />
+    </TypeUserDef>
+    <TypeUserDef name="T_uQm_SW" size="0" nativesize="2" typeclass="Userdef" pouclass="UNION" iecname="uQm_SW">
+      <UserDefElement iecname="SW" type="T_UINT" byteoffset="-1" vartype="VAR" />
+      <UserDefElement iecname="SW_AsBit" type="T_SW_asBit" byteoffset="-1" vartype="VAR" />
+    </TypeUserDef>
+    <TypeUserDef name="T_FCHW_IN" size="18" nativesize="20" typeclass="Userdef" pouclass="STRUCTURE" iecname="FCHW_IN">
+      <UserDefElement iecname="Not_Used" type="T_UINT" byteoffset="0" vartype="VAR" />
+      <UserDefElement iecname="Act1" type="T_UINT" byteoffset="2" vartype="VAR" />
+      <UserDefElement iecname="Act2" type="T_UINT" byteoffset="4" vartype="VAR" />
+      <UserDefElement iecname="IN1" type="T_UINT" byteoffset="6" vartype="VAR" />
+      <UserDefElement iecname="IN2" type="T_uQm_SW" byteoffset="8" vartype="VAR" />
+      <UserDefElement iecname="IN3" type="T_UINT" byteoffset="8" vartype="VAR" />
+      <UserDefElement iecname="IN4" type="T_UINT" byteoffset="10" vartype="VAR" />
+      <UserDefElement iecname="IN5" type="T_UINT" byteoffset="12" vartype="VAR" />
+      <UserDefElement iecname="IN6" type="T_UINT" byteoffset="14" vartype="VAR" />
+      <UserDefElement iecname="IN7" type="T_UINT" byteoffset="16" vartype="VAR" />
+    </TypeUserDef>
+    <TypeUserDef name="T_FCHW_Out" size="18" nativesize="20" typeclass="Userdef" pouclass="STRUCTURE" iecname="FCHW_Out">
+      <UserDefElement iecname="CW" type="T_uQm_CW" byteoffset="0" vartype="VAR" />
+      <UserDefElement iecname="Ref1" type="T_INT" byteoffset="0" vartype="VAR" />
+      <UserDefElement iecname="Ref2" type="T_INT" byteoffset="2" vartype="VAR" />
+      <UserDefElement iecname="OUT1" type="T_INT" byteoffset="4" vartype="VAR" />
+      <UserDefElement iecname="OUT2" type="T_INT" byteoffset="6" vartype="VAR" />
+      <UserDefElement iecname="OUT3" type="T_INT" byteoffset="8" vartype="VAR" />
+      <UserDefElement iecname="OUT4" type="T_INT" byteoffset="10" vartype="VAR" />
+      <UserDefElement iecname="OUT5" type="T_INT" byteoffset="12" vartype="VAR" />
+      <UserDefElement iecname="OUT6" type="T_INT" byteoffset="14" vartype="VAR" />
+      <UserDefElement iecname="OUT7" type="T_INT" byteoffset="16" vartype="VAR" />
+    </TypeUserDef>
+    <TypeUserDef name="T_FCHW" size="36" nativesize="40" typeclass="Userdef" pouclass="STRUCTURE" iecname="FCHW">
+      <UserDefElement iecname="IN" type="T_FCHW_IN" byteoffset="0" vartype="VAR" />
+      <UserDefElement iecname="Out" type="T_FCHW_Out" byteoffset="18" vartype="VAR" />
+    </TypeUserDef>
+  </TypeList>
+  <NodeList>
+    <Node name="Application">
+      <Node name="GVL">
+        <Node name="Qumark" type="T_FCHW" access="ReadWrite" />
+      </Node>
+    </Node>
+  </NodeList>
+</Symbolconfiguration>
