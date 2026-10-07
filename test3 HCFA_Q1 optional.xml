@@ -23,13 +23,7 @@
   </contentHeader>
   <types>
     <dataTypes>
-    <datatype name="ST_A6Control">
-      <addData>
-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
-          <ObjectId>176e60e4-dc06-4c57-8e92-25ce06e25d87</ObjectId>
-        </data>
-      </addData>
-    <dataType name="ST_A6Control">
+<dataType name="ST_A6Control">
       <baseType>
         <struct>
           <variable name="Control_word">
@@ -112,14 +106,7 @@
         </data>
       </addData>
     </dataType>
-    </datatype>
-    <datatype name="ST_A6Status">
-      <addData>
-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
-          <ObjectId>9efa9f6e-f38d-4d8e-93ac-206ac8aa1d90</ObjectId>
-        </data>
-      </addData>
-    <dataType name="ST_A6Status">
+<dataType name="ST_A6Status">
       <baseType>
         <struct>
           <variable name="Error_code">
@@ -210,14 +197,7 @@
         </data>
       </addData>
     </dataType>
-    </datatype>
-    <datatype name="ST_A6">
-      <addData>
-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
-          <ObjectId>45ca426d-ce48-451d-971b-9e41c1f4ddc7</ObjectId>
-        </data>
-      </addData>
-    <dataType name="ST_A6">
+<dataType name="ST_A6">
       <baseType>
         <struct>
           <variable name="In">
@@ -238,14 +218,7 @@
         </data>
       </addData>
     </dataType>
-    </datatype>
-    <datatype name="HW_ALL">
-      <addData>
-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
-          <ObjectId>63de8f70-e5df-4330-a8d8-cf725f6d34ad</ObjectId>
-        </data>
-      </addData>
-    <dataType name="HW_ALL">
+<dataType name="HW_ALL">
       <baseType>
         <struct>
           <variable name="DI">
@@ -276,14 +249,7 @@
         </data>
       </addData>
     </dataType>
-    </datatype>
-    <datatype name="DI">
-      <addData>
-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
-          <ObjectId>311b57e4-651a-45f0-b9f8-9ac0eac27592</ObjectId>
-        </data>
-      </addData>
-    <dataType name="DI">
+<dataType name="DI">
       <baseType>
         <struct />
       </baseType>
@@ -293,14 +259,7 @@
         </data>
       </addData>
     </dataType>
-    </datatype>
-    <datatype name="Dout">
-      <addData>
-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
-          <ObjectId>c7b5456f-6c4f-4592-a558-b3db656c49d3</ObjectId>
-        </data>
-      </addData>
-    <dataType name="Dout">
+<dataType name="Dout">
       <baseType>
         <struct />
       </baseType>
@@ -310,14 +269,7 @@
         </data>
       </addData>
     </dataType>
-    </datatype>
-    <datatype name="AI">
-      <addData>
-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
-          <ObjectId>d8a0297d-57f1-4136-942e-33dd1531b6b9</ObjectId>
-        </data>
-      </addData>
-    <dataType name="AI">
+<dataType name="AI">
       <baseType>
         <struct />
       </baseType>
@@ -327,14 +279,7 @@
         </data>
       </addData>
     </dataType>
-    </datatype>
-    <datatype name="AO">
-      <addData>
-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
-          <ObjectId>34bc9537-ad86-4fd9-9d72-6d799533e684</ObjectId>
-        </data>
-      </addData>
-    <dataType name="AO">
+<dataType name="AO">
       <baseType>
         <struct />
       </baseType>
@@ -344,14 +289,7 @@
         </data>
       </addData>
     </dataType>
-    </datatype>
-    <datatype name="Servo">
-      <addData>
-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
-          <ObjectId>b2643b84-3378-4963-8a01-e5f254bf3fda</ObjectId>
-        </data>
-      </addData>
-    <dataType name="Servo">
+<dataType name="Servo">
       <baseType>
         <struct>
           <variable name="Axis_Move">
@@ -377,14 +315,7 @@
         </data>
       </addData>
     </dataType>
-    </datatype>
-    <datatype name="E_ModesOfOperation">
-      <addData>
-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
-          <ObjectId>d3d6e5cf-5d08-46b9-840d-1215cc27e49a</ObjectId>
-        </data>
-      </addData>
-    <dataType name="E_ModesOfOperation">
+<dataType name="E_ModesOfOperation">
       <baseType>
         <enum>
           <values>
@@ -463,19 +394,12 @@
         </data>
       </addData>
     </dataType>
-    </datatype>
-    <datatype name="ST_ControlWord_Bits">
-      <addData>
-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
-          <ObjectId>489416d9-0200-46f9-81ed-bb42c3752258</ObjectId>
-        </data>
-      </addData>
-    <dataType name="ST_ControlWord_Bits">
+<dataType name="ST_ControlWord_Bits">
       <baseType>
         <struct>
           <variable name="Switch_on">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 0</xhtml>
@@ -483,7 +407,7 @@
           </variable>
           <variable name="Enable_voltage">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 1</xhtml>
@@ -491,7 +415,7 @@
           </variable>
           <variable name="Quick_stop">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 2 (0 = Quick stop active)</xhtml>
@@ -499,7 +423,7 @@
           </variable>
           <variable name="Enable_operation">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 3</xhtml>
@@ -507,7 +431,7 @@
           </variable>
           <variable name="Op_mode_specific_1">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 4 (New set-point / Enable ramp)</xhtml>
@@ -515,7 +439,7 @@
           </variable>
           <variable name="Op_mode_specific_2">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 5 (Change set immediately / Unlock ramp)</xhtml>
@@ -523,7 +447,7 @@
           </variable>
           <variable name="Op_mode_specific_3">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 6 (Absolute / Relative)</xhtml>
@@ -531,7 +455,7 @@
           </variable>
           <variable name="Fault_reset">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 7 (0-&gt;1 = Reset fault)</xhtml>
@@ -539,7 +463,7 @@
           </variable>
           <variable name="Halt">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 8</xhtml>
@@ -547,7 +471,7 @@
           </variable>
           <variable name="Op_mode_specific_4">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 9</xhtml>
@@ -555,7 +479,7 @@
           </variable>
           <variable name="Reserved_10">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 10</xhtml>
@@ -563,7 +487,7 @@
           </variable>
           <variable name="Manufacturer_1">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 11</xhtml>
@@ -571,7 +495,7 @@
           </variable>
           <variable name="Manufacturer_2">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 12</xhtml>
@@ -579,7 +503,7 @@
           </variable>
           <variable name="Manufacturer_3">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 13</xhtml>
@@ -587,7 +511,7 @@
           </variable>
           <variable name="Manufacturer_4">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 14</xhtml>
@@ -595,7 +519,7 @@
           </variable>
           <variable name="Manufacturer_5">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 15</xhtml>
@@ -609,19 +533,12 @@
         </data>
       </addData>
     </dataType>
-    </datatype>
-    <datatype name="ST_StatusWord_Bits">
-      <addData>
-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
-          <ObjectId>0b524d6c-408b-479a-9a06-a1e4c384cda0</ObjectId>
-        </data>
-      </addData>
-    <dataType name="ST_StatusWord_Bits">
+<dataType name="ST_StatusWord_Bits">
       <baseType>
         <struct>
           <variable name="Ready_to_switch_on">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 0</xhtml>
@@ -629,7 +546,7 @@
           </variable>
           <variable name="Switched_on">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 1</xhtml>
@@ -637,7 +554,7 @@
           </variable>
           <variable name="Operation_enabled">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 2</xhtml>
@@ -645,7 +562,7 @@
           </variable>
           <variable name="Fault">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 3</xhtml>
@@ -653,7 +570,7 @@
           </variable>
           <variable name="Voltage_enabled">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 4</xhtml>
@@ -661,7 +578,7 @@
           </variable>
           <variable name="Quick_stop">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 5 (0 = Quick stop active)</xhtml>
@@ -669,7 +586,7 @@
           </variable>
           <variable name="Switch_on_disabled">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 6</xhtml>
@@ -677,7 +594,7 @@
           </variable>
           <variable name="Warning">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 7</xhtml>
@@ -685,7 +602,7 @@
           </variable>
           <variable name="Manufacturer_1">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 8</xhtml>
@@ -693,7 +610,7 @@
           </variable>
           <variable name="Remote">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 9</xhtml>
@@ -701,7 +618,7 @@
           </variable>
           <variable name="Target_reached">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 10 (Position/Speed/Torque reached)</xhtml>
@@ -709,7 +626,7 @@
           </variable>
           <variable name="Internal_limit_active">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 11</xhtml>
@@ -717,7 +634,7 @@
           </variable>
           <variable name="Op_mode_specific_1">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 12 (Set-point acknowledge / Speed)</xhtml>
@@ -725,7 +642,7 @@
           </variable>
           <variable name="Op_mode_specific_2">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 13 (Following error)</xhtml>
@@ -733,7 +650,7 @@
           </variable>
           <variable name="Manufacturer_2">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 14</xhtml>
@@ -741,7 +658,7 @@
           </variable>
           <variable name="Manufacturer_3">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 15</xhtml>
@@ -755,14 +672,7 @@
         </data>
       </addData>
     </dataType>
-    </datatype>
-    <datatype name="E_ErrorCode">
-      <addData>
-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
-          <ObjectId>629d6098-7f15-4517-b4dd-cc14f6ad3c40</ObjectId>
-        </data>
-      </addData>
-    <dataType name="E_ErrorCode">
+<dataType name="E_ErrorCode">
       <baseType>
         <enum>
           <values>
@@ -965,14 +875,7 @@
         </data>
       </addData>
     </dataType>
-    </datatype>
-    <datatype name="ST_TouchProbeStatus_Bits">
-      <addData>
-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
-          <ObjectId>dd5aecb6-fb96-41ff-97af-6207ad127ca7</ObjectId>
-        </data>
-      </addData>
-    <dataType name="ST_TouchProbeStatus_Bits">
+<dataType name="ST_TouchProbeStatus_Bits">
       <baseType>
         <struct />
       </baseType>
@@ -982,19 +885,12 @@
         </data>
       </addData>
     </dataType>
-    </datatype>
-    <datatype name="ST_TouchProbeFunction_Bits">
-      <addData>
-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
-          <ObjectId>1f66ab67-9d33-495c-9802-a777441928df</ObjectId>
-        </data>
-      </addData>
-    <dataType name="ST_TouchProbeFunction_Bits">
+<dataType name="ST_TouchProbeFunction_Bits">
       <baseType>
         <struct>
           <variable name="TP1_Enable">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 0: 0=Disabled, 1=Enabled</xhtml>
@@ -1002,7 +898,7 @@
           </variable>
           <variable name="TP1_TriggerMode">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 1: 0=Single, 1=Continuous</xhtml>
@@ -1010,7 +906,7 @@
           </variable>
           <variable name="TP1_SignalSource">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 2: 0=DI signal, 1=Z signal</xhtml>
@@ -1018,7 +914,7 @@
           </variable>
           <variable name="Reserved_3">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 3</xhtml>
@@ -1026,7 +922,7 @@
           </variable>
           <variable name="TP1_PosEdge_Enable">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 4: Разрешить захват по положительному фронту</xhtml>
@@ -1034,7 +930,7 @@
           </variable>
           <variable name="TP1_NegEdge_Enable">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 5: Разрешить захват по отрицательному фронту</xhtml>
@@ -1042,7 +938,7 @@
           </variable>
           <variable name="Reserved_6">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 6</xhtml>
@@ -1050,7 +946,7 @@
           </variable>
           <variable name="Reserved_7">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 7</xhtml>
@@ -1058,7 +954,7 @@
           </variable>
           <variable name="TP2_Enable">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 8</xhtml>
@@ -1066,7 +962,7 @@
           </variable>
           <variable name="TP2_TriggerMode">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 9</xhtml>
@@ -1074,7 +970,7 @@
           </variable>
           <variable name="TP2_SignalSource">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 10</xhtml>
@@ -1082,7 +978,7 @@
           </variable>
           <variable name="Reserved_11">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 11</xhtml>
@@ -1090,7 +986,7 @@
           </variable>
           <variable name="TP2_PosEdge_Enable">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 12</xhtml>
@@ -1098,7 +994,7 @@
           </variable>
           <variable name="TP2_NegEdge_Enable">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 13</xhtml>
@@ -1106,7 +1002,7 @@
           </variable>
           <variable name="Reserved_14">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 14</xhtml>
@@ -1114,7 +1010,7 @@
           </variable>
           <variable name="Reserved_15">
             <type>
-              <derived name="BIT" />
+              <BOOL />
             </type>
             <documentation>
               <xhtml xmlns="http://www.w3.org/1999/xhtml"> Бит 15</xhtml>
@@ -1128,14 +1024,7 @@
         </data>
       </addData>
     </dataType>
-    </datatype>
-    <union name="U_A6ControlWord">
-      <addData>
-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
-          <ObjectId>21f6bff5-aedc-4fa3-bb85-0913613bedbd</ObjectId>
-        </data>
-      </addData>
-    <union name="U_A6ControlWord">
+<union name="U_A6ControlWord">
       <variable name="CW">
         <type>
           <UINT />
@@ -1152,14 +1041,7 @@
         </data>
       </addData>
     </union>
-    </union>
-    <union name="U_A6StatusWord">
-      <addData>
-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
-          <ObjectId>46d4d81b-3c58-406f-938f-36d177191493</ObjectId>
-        </data>
-      </addData>
-    <union name="U_A6StatusWord">
+<union name="U_A6StatusWord">
       <variable name="SW">
         <type>
           <UINT />
@@ -1176,14 +1058,7 @@
         </data>
       </addData>
     </union>
-    </union>
-    <union name="U_A6TouchProbeFunction">
-      <addData>
-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
-          <ObjectId>5c006a8c-2f6e-40a5-8d6e-74469f894b52</ObjectId>
-        </data>
-      </addData>
-    <union name="U_A6TouchProbeFunction">
+<union name="U_A6TouchProbeFunction">
       <variable name="Func">
         <type>
           <UINT />
@@ -1200,14 +1075,7 @@
         </data>
       </addData>
     </union>
-    </union>
-    <union name="U_A6TouchProbeStatus">
-      <addData>
-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
-          <ObjectId>aedad91a-5852-4be7-8361-bf2633126450</ObjectId>
-        </data>
-      </addData>
-    <union name="U_A6TouchProbeStatus">
+<union name="U_A6TouchProbeStatus">
       <variable name="SW">
         <type>
           <UINT />
@@ -1224,30 +1092,16 @@
         </data>
       </addData>
     </union>
-    </union>
     </dataTypes>
     <pous>
-    <pou name="PLC_PRG">
-      <addData>
-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
-          <ObjectId>64045e63-8290-4ee2-ac36-ed90204edbeb</ObjectId>
-        </data>
-      </addData>
-    <pou name="PLC_PRG" pouType="program">
+<pou name="PLC_PRG" pouType="program" objectid="9d230b92-f347-431e-a39f-4e5695f12a96">
       <interface />
       <body>
         <ST>
           <xhtml xmlns="http://www.w3.org/1999/xhtml">//Qumark:=GVL.Qumark;
     </xhtml>
         </ST>
-      </body>
-      <addData>
-        <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
-          <ObjectId>64045e63-8290-4ee2-ac36-ed90204edbeb</ObjectId>
-        </data>
-      </addData>
-    </pou>
-    </pou>
+      </body></pou>
     </pous>
   </types>
   <instances>
