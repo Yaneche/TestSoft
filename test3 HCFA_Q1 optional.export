@@ -35290,7 +35290,15 @@
                         <Single Name="AutomaticAddress" Type="bool">True</Single>
                         <Single Name="IecAddress" Type="string"></Single>
                         <Single Name="Mappings" Type="{8a62c05c-4fee-4b4a-8600-a677aedc92c7}" Method="IArchivable">
-                          <List2 Name="Mappings" />
+                          <List2 Name="Mappings">
+                            <Single Type="{47edf8ea-3f84-452c-b998-e18f878578d3}" Method="IArchivable">
+                              <Single Name="Variable" Type="string">Application.HW.IO.Servo.Axis_Move.Out.Target_position</Single>
+                              <Single Name="Id" Type="long">-1</Single>
+                              <Single Name="CreateVariable" Type="bool">False</Single>
+                              <Single Name="DefaultVariable" Type="string"></Single>
+                              <Single Name="IoChannelFBInstance" Type="string"></Single>
+                            </Single>
+                          </List2>
                         </Single>
                       </Single>
                       <List Name="CustomItems" Type="{7d23305a-7bb9-46e6-b58b-01ea5694add1}" />
@@ -37793,7 +37801,15 @@
                         <Single Name="AutomaticAddress" Type="bool">True</Single>
                         <Single Name="IecAddress" Type="string"></Single>
                         <Single Name="Mappings" Type="{8a62c05c-4fee-4b4a-8600-a677aedc92c7}" Method="IArchivable">
-                          <List2 Name="Mappings" />
+                          <List2 Name="Mappings">
+                            <Single Type="{47edf8ea-3f84-452c-b998-e18f878578d3}" Method="IArchivable">
+                              <Single Name="Variable" Type="string">Application.HW.IO.Servo.Axis_Move.Out.Target_velocity</Single>
+                              <Single Name="Id" Type="long">-1</Single>
+                              <Single Name="CreateVariable" Type="bool">False</Single>
+                              <Single Name="DefaultVariable" Type="string"></Single>
+                              <Single Name="IoChannelFBInstance" Type="string"></Single>
+                            </Single>
+                          </List2>
                         </Single>
                       </Single>
                       <List Name="CustomItems" Type="{7d23305a-7bb9-46e6-b58b-01ea5694add1}" />
@@ -39080,7 +39096,15 @@
                         <Single Name="AutomaticAddress" Type="bool">True</Single>
                         <Single Name="IecAddress" Type="string"></Single>
                         <Single Name="Mappings" Type="{8a62c05c-4fee-4b4a-8600-a677aedc92c7}" Method="IArchivable">
-                          <List2 Name="Mappings" />
+                          <List2 Name="Mappings">
+                            <Single Type="{47edf8ea-3f84-452c-b998-e18f878578d3}" Method="IArchivable">
+                              <Single Name="Variable" Type="string">Application.HW.IO.Servo.Axis_Move.Out.Target_torque</Single>
+                              <Single Name="Id" Type="long">-1</Single>
+                              <Single Name="CreateVariable" Type="bool">False</Single>
+                              <Single Name="DefaultVariable" Type="string"></Single>
+                              <Single Name="IoChannelFBInstance" Type="string"></Single>
+                            </Single>
+                          </List2>
                         </Single>
                       </Single>
                       <List Name="CustomItems" Type="{7d23305a-7bb9-46e6-b58b-01ea5694add1}" />
@@ -39759,7 +39783,15 @@
                         <Single Name="AutomaticAddress" Type="bool">True</Single>
                         <Single Name="IecAddress" Type="string"></Single>
                         <Single Name="Mappings" Type="{8a62c05c-4fee-4b4a-8600-a677aedc92c7}" Method="IArchivable">
-                          <List2 Name="Mappings" />
+                          <List2 Name="Mappings">
+                            <Single Type="{47edf8ea-3f84-452c-b998-e18f878578d3}" Method="IArchivable">
+                              <Single Name="Variable" Type="string">Application.HW.IO.Servo.Axis_Move.Out.Modes_of_operation</Single>
+                              <Single Name="Id" Type="long">-1</Single>
+                              <Single Name="CreateVariable" Type="bool">False</Single>
+                              <Single Name="DefaultVariable" Type="string"></Single>
+                              <Single Name="IoChannelFBInstance" Type="string"></Single>
+                            </Single>
+                          </List2>
                         </Single>
                       </Single>
                       <List Name="CustomItems" Type="{7d23305a-7bb9-46e6-b58b-01ea5694add1}" />
@@ -41046,7 +41078,15 @@
                         <Single Name="AutomaticAddress" Type="bool">True</Single>
                         <Single Name="IecAddress" Type="string"></Single>
                         <Single Name="Mappings" Type="{8a62c05c-4fee-4b4a-8600-a677aedc92c7}" Method="IArchivable">
-                          <List2 Name="Mappings" />
+                          <List2 Name="Mappings">
+                            <Single Type="{47edf8ea-3f84-452c-b998-e18f878578d3}" Method="IArchivable">
+                              <Single Name="Variable" Type="string">Application.HW.IO.Servo.Axis_Move.Out.Touch_probe_function.Func</Single>
+                              <Single Name="Id" Type="long">-1</Single>
+                              <Single Name="CreateVariable" Type="bool">False</Single>
+                              <Single Name="DefaultVariable" Type="string"></Single>
+                              <Single Name="IoChannelFBInstance" Type="string"></Single>
+                            </Single>
+                          </List2>
                         </Single>
                       </Single>
                       <List Name="CustomItems" Type="{7d23305a-7bb9-46e6-b58b-01ea5694add1}" />
@@ -43549,7 +43589,15 @@
                         <Single Name="AutomaticAddress" Type="bool">True</Single>
                         <Single Name="IecAddress" Type="string"></Single>
                         <Single Name="Mappings" Type="{8a62c05c-4fee-4b4a-8600-a677aedc92c7}" Method="IArchivable">
-                          <List2 Name="Mappings" />
+                          <List2 Name="Mappings">
+                            <Single Type="{47edf8ea-3f84-452c-b998-e18f878578d3}" Method="IArchivable">
+                              <Single Name="Variable" Type="string">Application.HW.IO.Servo.Axis_Move.Out.Max_profile_velocity</Single>
+                              <Single Name="Id" Type="long">-1</Single>
+                              <Single Name="CreateVariable" Type="bool">False</Single>
+                              <Single Name="DefaultVariable" Type="string"></Single>
+                              <Single Name="IoChannelFBInstance" Type="string"></Single>
+                            </Single>
+                          </List2>
                         </Single>
                       </Single>
                       <List Name="CustomItems" Type="{7d23305a-7bb9-46e6-b58b-01ea5694add1}" />
@@ -44836,7 +44884,15 @@
                         <Single Name="AutomaticAddress" Type="bool">True</Single>
                         <Single Name="IecAddress" Type="string"></Single>
                         <Single Name="Mappings" Type="{8a62c05c-4fee-4b4a-8600-a677aedc92c7}" Method="IArchivable">
-                          <List2 Name="Mappings" />
+                          <List2 Name="Mappings">
+                            <Single Type="{47edf8ea-3f84-452c-b998-e18f878578d3}" Method="IArchivable">
+                              <Single Name="Variable" Type="string">Application.HW.IO.Servo.Axis_Move.Out.Positive_torque_limit</Single>
+                              <Single Name="Id" Type="long">-1</Single>
+                              <Single Name="CreateVariable" Type="bool">False</Single>
+                              <Single Name="DefaultVariable" Type="string"></Single>
+                              <Single Name="IoChannelFBInstance" Type="string"></Single>
+                            </Single>
+                          </List2>
                         </Single>
                       </Single>
                       <List Name="CustomItems" Type="{7d23305a-7bb9-46e6-b58b-01ea5694add1}" />
@@ -46123,7 +46179,15 @@
                         <Single Name="AutomaticAddress" Type="bool">True</Single>
                         <Single Name="IecAddress" Type="string"></Single>
                         <Single Name="Mappings" Type="{8a62c05c-4fee-4b4a-8600-a677aedc92c7}" Method="IArchivable">
-                          <List2 Name="Mappings" />
+                          <List2 Name="Mappings">
+                            <Single Type="{47edf8ea-3f84-452c-b998-e18f878578d3}" Method="IArchivable">
+                              <Single Name="Variable" Type="string">Application.HW.IO.Servo.Axis_Move.Out.Negative_torque_limit</Single>
+                              <Single Name="Id" Type="long">-1</Single>
+                              <Single Name="CreateVariable" Type="bool">False</Single>
+                              <Single Name="DefaultVariable" Type="string"></Single>
+                              <Single Name="IoChannelFBInstance" Type="string"></Single>
+                            </Single>
+                          </List2>
                         </Single>
                       </Single>
                       <List Name="CustomItems" Type="{7d23305a-7bb9-46e6-b58b-01ea5694add1}" />
@@ -48777,7 +48841,15 @@
                         <Single Name="AutomaticAddress" Type="bool">True</Single>
                         <Single Name="IecAddress" Type="string"></Single>
                         <Single Name="Mappings" Type="{8a62c05c-4fee-4b4a-8600-a677aedc92c7}" Method="IArchivable">
-                          <List2 Name="Mappings" />
+                          <List2 Name="Mappings">
+                            <Single Type="{47edf8ea-3f84-452c-b998-e18f878578d3}" Method="IArchivable">
+                              <Single Name="Variable" Type="string">Application.HW.IO.Servo.Axis_Move.In.Statusword.SW</Single>
+                              <Single Name="Id" Type="long">-1</Single>
+                              <Single Name="CreateVariable" Type="bool">False</Single>
+                              <Single Name="DefaultVariable" Type="string"></Single>
+                              <Single Name="IoChannelFBInstance" Type="string"></Single>
+                            </Single>
+                          </List2>
                         </Single>
                       </Single>
                       <List Name="CustomItems" Type="{7d23305a-7bb9-46e6-b58b-01ea5694add1}" />
@@ -51280,7 +51352,15 @@
                         <Single Name="AutomaticAddress" Type="bool">True</Single>
                         <Single Name="IecAddress" Type="string"></Single>
                         <Single Name="Mappings" Type="{8a62c05c-4fee-4b4a-8600-a677aedc92c7}" Method="IArchivable">
-                          <List2 Name="Mappings" />
+                          <List2 Name="Mappings">
+                            <Single Type="{47edf8ea-3f84-452c-b998-e18f878578d3}" Method="IArchivable">
+                              <Single Name="Variable" Type="string">Application.HW.IO.Servo.Axis_Move.In.Position_actual_value</Single>
+                              <Single Name="Id" Type="long">-1</Single>
+                              <Single Name="CreateVariable" Type="bool">False</Single>
+                              <Single Name="DefaultVariable" Type="string"></Single>
+                              <Single Name="IoChannelFBInstance" Type="string"></Single>
+                            </Single>
+                          </List2>
                         </Single>
                       </Single>
                       <List Name="CustomItems" Type="{7d23305a-7bb9-46e6-b58b-01ea5694add1}" />
@@ -52567,7 +52647,15 @@
                         <Single Name="AutomaticAddress" Type="bool">True</Single>
                         <Single Name="IecAddress" Type="string"></Single>
                         <Single Name="Mappings" Type="{8a62c05c-4fee-4b4a-8600-a677aedc92c7}" Method="IArchivable">
-                          <List2 Name="Mappings" />
+                          <List2 Name="Mappings">
+                            <Single Type="{47edf8ea-3f84-452c-b998-e18f878578d3}" Method="IArchivable">
+                              <Single Name="Variable" Type="string">Application.HW.IO.Servo.Axis_Move.In.Torque_actual_value</Single>
+                              <Single Name="Id" Type="long">-1</Single>
+                              <Single Name="CreateVariable" Type="bool">False</Single>
+                              <Single Name="DefaultVariable" Type="string"></Single>
+                              <Single Name="IoChannelFBInstance" Type="string"></Single>
+                            </Single>
+                          </List2>
                         </Single>
                       </Single>
                       <List Name="CustomItems" Type="{7d23305a-7bb9-46e6-b58b-01ea5694add1}" />
@@ -53246,7 +53334,15 @@
                         <Single Name="AutomaticAddress" Type="bool">True</Single>
                         <Single Name="IecAddress" Type="string"></Single>
                         <Single Name="Mappings" Type="{8a62c05c-4fee-4b4a-8600-a677aedc92c7}" Method="IArchivable">
-                          <List2 Name="Mappings" />
+                          <List2 Name="Mappings">
+                            <Single Type="{47edf8ea-3f84-452c-b998-e18f878578d3}" Method="IArchivable">
+                              <Single Name="Variable" Type="string">Application.HW.IO.Servo.Axis_Move.In.Modes_of_operation_disp</Single>
+                              <Single Name="Id" Type="long">-1</Single>
+                              <Single Name="CreateVariable" Type="bool">False</Single>
+                              <Single Name="DefaultVariable" Type="string"></Single>
+                              <Single Name="IoChannelFBInstance" Type="string"></Single>
+                            </Single>
+                          </List2>
                         </Single>
                       </Single>
                       <List Name="CustomItems" Type="{7d23305a-7bb9-46e6-b58b-01ea5694add1}" />
@@ -55749,7 +55845,15 @@
                         <Single Name="AutomaticAddress" Type="bool">True</Single>
                         <Single Name="IecAddress" Type="string"></Single>
                         <Single Name="Mappings" Type="{8a62c05c-4fee-4b4a-8600-a677aedc92c7}" Method="IArchivable">
-                          <List2 Name="Mappings" />
+                          <List2 Name="Mappings">
+                            <Single Type="{47edf8ea-3f84-452c-b998-e18f878578d3}" Method="IArchivable">
+                              <Single Name="Variable" Type="string">Application.HW.IO.Servo.Axis_Move.In.Following_error_actual</Single>
+                              <Single Name="Id" Type="long">-1</Single>
+                              <Single Name="CreateVariable" Type="bool">False</Single>
+                              <Single Name="DefaultVariable" Type="string"></Single>
+                              <Single Name="IoChannelFBInstance" Type="string"></Single>
+                            </Single>
+                          </List2>
                         </Single>
                       </Single>
                       <List Name="CustomItems" Type="{7d23305a-7bb9-46e6-b58b-01ea5694add1}" />
@@ -57036,7 +57140,15 @@
                         <Single Name="AutomaticAddress" Type="bool">True</Single>
                         <Single Name="IecAddress" Type="string"></Single>
                         <Single Name="Mappings" Type="{8a62c05c-4fee-4b4a-8600-a677aedc92c7}" Method="IArchivable">
-                          <List2 Name="Mappings" />
+                          <List2 Name="Mappings">
+                            <Single Type="{47edf8ea-3f84-452c-b998-e18f878578d3}" Method="IArchivable">
+                              <Single Name="Variable" Type="string">Application.HW.IO.Servo.Axis_Move.In.Touch_probe_status.SW</Single>
+                              <Single Name="Id" Type="long">-1</Single>
+                              <Single Name="CreateVariable" Type="bool">False</Single>
+                              <Single Name="DefaultVariable" Type="string"></Single>
+                              <Single Name="IoChannelFBInstance" Type="string"></Single>
+                            </Single>
+                          </List2>
                         </Single>
                       </Single>
                       <List Name="CustomItems" Type="{7d23305a-7bb9-46e6-b58b-01ea5694add1}" />
@@ -59539,7 +59651,15 @@
                         <Single Name="AutomaticAddress" Type="bool">True</Single>
                         <Single Name="IecAddress" Type="string"></Single>
                         <Single Name="Mappings" Type="{8a62c05c-4fee-4b4a-8600-a677aedc92c7}" Method="IArchivable">
-                          <List2 Name="Mappings" />
+                          <List2 Name="Mappings">
+                            <Single Type="{47edf8ea-3f84-452c-b998-e18f878578d3}" Method="IArchivable">
+                              <Single Name="Variable" Type="string">Application.HW.IO.Servo.Axis_Move.In.Touch_probe_pos1_value</Single>
+                              <Single Name="Id" Type="long">-1</Single>
+                              <Single Name="CreateVariable" Type="bool">False</Single>
+                              <Single Name="DefaultVariable" Type="string"></Single>
+                              <Single Name="IoChannelFBInstance" Type="string"></Single>
+                            </Single>
+                          </List2>
                         </Single>
                       </Single>
                       <List Name="CustomItems" Type="{7d23305a-7bb9-46e6-b58b-01ea5694add1}" />
@@ -62042,7 +62162,15 @@
                         <Single Name="AutomaticAddress" Type="bool">True</Single>
                         <Single Name="IecAddress" Type="string"></Single>
                         <Single Name="Mappings" Type="{8a62c05c-4fee-4b4a-8600-a677aedc92c7}" Method="IArchivable">
-                          <List2 Name="Mappings" />
+                          <List2 Name="Mappings">
+                            <Single Type="{47edf8ea-3f84-452c-b998-e18f878578d3}" Method="IArchivable">
+                              <Single Name="Variable" Type="string">Application.HW.IO.Servo.Axis_Move.In.Touch_probe_pos2_value</Single>
+                              <Single Name="Id" Type="long">-1</Single>
+                              <Single Name="CreateVariable" Type="bool">False</Single>
+                              <Single Name="DefaultVariable" Type="string"></Single>
+                              <Single Name="IoChannelFBInstance" Type="string"></Single>
+                            </Single>
+                          </List2>
                         </Single>
                       </Single>
                       <List Name="CustomItems" Type="{7d23305a-7bb9-46e6-b58b-01ea5694add1}" />
@@ -64545,7 +64673,15 @@
                         <Single Name="AutomaticAddress" Type="bool">True</Single>
                         <Single Name="IecAddress" Type="string"></Single>
                         <Single Name="Mappings" Type="{8a62c05c-4fee-4b4a-8600-a677aedc92c7}" Method="IArchivable">
-                          <List2 Name="Mappings" />
+                          <List2 Name="Mappings">
+                            <Single Type="{47edf8ea-3f84-452c-b998-e18f878578d3}" Method="IArchivable">
+                              <Single Name="Variable" Type="string">Application.HW.IO.Servo.Axis_Move.In.Velocity_actual_value</Single>
+                              <Single Name="Id" Type="long">-1</Single>
+                              <Single Name="CreateVariable" Type="bool">False</Single>
+                              <Single Name="DefaultVariable" Type="string"></Single>
+                              <Single Name="IoChannelFBInstance" Type="string"></Single>
+                            </Single>
+                          </List2>
                         </Single>
                       </Single>
                       <List Name="CustomItems" Type="{7d23305a-7bb9-46e6-b58b-01ea5694add1}" />
