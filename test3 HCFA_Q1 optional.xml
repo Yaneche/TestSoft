@@ -5454,6 +5454,7 @@
                                       </Value>
                                       <Name>Target position</Name>
                                       <Description>Target position</Description>
+                                      <Mapping>Application.HW.IO.Servo.Axis_Move.Out.Target_position</Mapping>
                                     </Parameter>
                                     <Parameter ParameterId="16777220" type="std:DINT">
                                       <Attributes channel="output" />
@@ -5493,6 +5494,7 @@
                                       </Value>
                                       <Name>Target velocity</Name>
                                       <Description>Target velocity</Description>
+                                      <Mapping>Application.HW.IO.Servo.Axis_Move.Out.Target_velocity</Mapping>
                                     </Parameter>
                                     <Parameter ParameterId="16777221" type="std:INT">
                                       <Attributes channel="output" />
@@ -5516,6 +5518,7 @@
                                       </Value>
                                       <Name>Target torque</Name>
                                       <Description>Target torque</Description>
+                                      <Mapping>Application.HW.IO.Servo.Axis_Move.Out.Target_torque</Mapping>
                                     </Parameter>
                                     <Parameter ParameterId="16777222" type="std:SINT">
                                       <Attributes channel="output" />
@@ -5531,6 +5534,7 @@
                                       </Value>
                                       <Name>Modes of operation</Name>
                                       <Description>Modes of operation</Description>
+                                      <Mapping>Application.HW.IO.Servo.Axis_Move.Out.Modes_of_operation</Mapping>
                                     </Parameter>
                                     <Parameter ParameterId="16777223" type="std:UINT">
                                       <Attributes channel="output" />
@@ -5554,6 +5558,7 @@
                                       </Value>
                                       <Name>Touch probe function</Name>
                                       <Description>Touch probe function</Description>
+                                      <Mapping>Application.HW.IO.Servo.Axis_Move.Out.Touch_probe_function</Mapping>
                                     </Parameter>
                                     <Parameter ParameterId="16777224" type="std:UDINT">
                                       <Attributes channel="output" />
@@ -5593,6 +5598,7 @@
                                       </Value>
                                       <Name>Max profile velocity</Name>
                                       <Description>Max profile velocity</Description>
+                                      <Mapping>Application.HW.IO.Servo.Axis_Move.Out.Max_profile_velocity</Mapping>
                                     </Parameter>
                                     <Parameter ParameterId="16777225" type="std:UINT">
                                       <Attributes channel="output" />
@@ -5616,6 +5622,7 @@
                                       </Value>
                                       <Name>Positive torque limit value</Name>
                                       <Description>Positive torque limit value</Description>
+                                      <Mapping>Application.HW.IO.Servo.Axis_Move.Out.Positive_torque_limit</Mapping>
                                     </Parameter>
                                     <Parameter ParameterId="16777226" type="std:UINT">
                                       <Attributes channel="output" />
@@ -5639,6 +5646,7 @@
                                       </Value>
                                       <Name>Negative torque limit value</Name>
                                       <Description>Negative torque limit value</Description>
+                                      <Mapping>Application.HW.IO.Servo.Axis_Move.Out.Negative_torque_limit</Mapping>
                                     </Parameter>
                                     <Parameter ParameterId="33554434" type="std:UINT">
                                       <Attributes channel="input" />
@@ -5686,6 +5694,7 @@
                                       </Value>
                                       <Name>Statusword</Name>
                                       <Description>Statusword</Description>
+                                      <Mapping>Application.HW.IO.Servo.Axis_Move.In.Statusword</Mapping>
                                     </Parameter>
                                     <Parameter ParameterId="33554436" type="std:DINT">
                                       <Attributes channel="input" />
@@ -5725,6 +5734,7 @@
                                       </Value>
                                       <Name>Position actual value</Name>
                                       <Description>Position actual value</Description>
+                                      <Mapping>Application.HW.IO.Servo.Axis_Move.In.Position_actual_value</Mapping>
                                     </Parameter>
                                     <Parameter ParameterId="33554437" type="std:INT">
                                       <Attributes channel="input" />
@@ -5748,6 +5758,7 @@
                                       </Value>
                                       <Name>Torque actual value</Name>
                                       <Description>Torque actual value</Description>
+                                      <Mapping>Application.HW.IO.Servo.Axis_Move.In.Torque_actual_value</Mapping>
                                     </Parameter>
                                     <Parameter ParameterId="33554438" type="std:SINT">
                                       <Attributes channel="input" />
@@ -5763,6 +5774,7 @@
                                       </Value>
                                       <Name>Modes of operation display</Name>
                                       <Description>Modes of operation display</Description>
+                                      <Mapping>Application.HW.IO.Servo.Axis_Move.In.Modes_of_operation_disp</Mapping>
                                     </Parameter>
                                     <Parameter ParameterId="33554439" type="std:DINT">
                                       <Attributes channel="input" />
@@ -5802,6 +5814,7 @@
                                       </Value>
                                       <Name>Following error actual value</Name>
                                       <Description>Following error actual value</Description>
+                                      <Mapping>Application.HW.IO.Servo.Axis_Move.In.Following_error_actual</Mapping>
                                     </Parameter>
                                     <Parameter ParameterId="33554440" type="std:UINT">
                                       <Attributes channel="input" />
@@ -5825,6 +5838,7 @@
                                       </Value>
                                       <Name>Touch probe status</Name>
                                       <Description>Touch probe status</Description>
+                                      <Mapping>Application.HW.IO.Servo.Axis_Move.In.Touch_probe_status</Mapping>
                                     </Parameter>
                                     <Parameter ParameterId="33554441" type="std:DINT">
                                       <Attributes channel="input" />
@@ -5864,6 +5878,7 @@
                                       </Value>
                                       <Name>Touch probe pos1 pos value</Name>
                                       <Description>Touch probe pos1 pos value</Description>
+                                      <Mapping>Application.HW.IO.Servo.Axis_Move.In.Touch_probe_pos1_value</Mapping>
                                     </Parameter>
                                     <Parameter ParameterId="33554442" type="std:DINT">
                                       <Attributes channel="input" />
@@ -5903,6 +5918,7 @@
                                       </Value>
                                       <Name>Touch probe pos2 pos value</Name>
                                       <Description>Touch probe pos2 pos value</Description>
+                                      <Mapping>Application.HW.IO.Servo.Axis_Move.In.Touch_probe_pos2_value</Mapping>
                                     </Parameter>
                                     <Parameter ParameterId="33554443" type="std:DINT">
                                       <Attributes channel="input" />
@@ -5942,6 +5958,7 @@
                                       </Value>
                                       <Name>Velocity actual value</Name>
                                       <Description>Velocity actual value</Description>
+                                      <Mapping>Application.HW.IO.Servo.Axis_Move.In.Velocity_actual_value</Mapping>
                                     </Parameter>
                                   </HostParameterSet>
                                 </Connector>
