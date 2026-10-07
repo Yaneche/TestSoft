@@ -5558,7 +5558,7 @@
                                       </Value>
                                       <Name>Touch probe function</Name>
                                       <Description>Touch probe function</Description>
-                                      <Mapping>Application.HW.IO.Servo.Axis_Move.Out.Touch_probe_function</Mapping>
+                                      <Mapping>Application.HW.IO.Servo.Axis_Move.Out.Touch_probe_function.Func</Mapping>
                                     </Parameter>
                                     <Parameter ParameterId="16777224" type="std:UDINT">
                                       <Attributes channel="output" />
@@ -5694,7 +5694,7 @@
                                       </Value>
                                       <Name>Statusword</Name>
                                       <Description>Statusword</Description>
-                                      <Mapping>Application.HW.IO.Servo.Axis_Move.In.Statusword</Mapping>
+                                      <Mapping>Application.HW.IO.Servo.Axis_Move.In.Statusword.SW</Mapping>
                                     </Parameter>
                                     <Parameter ParameterId="33554436" type="std:DINT">
                                       <Attributes channel="input" />
@@ -5838,7 +5838,7 @@
                                       </Value>
                                       <Name>Touch probe status</Name>
                                       <Description>Touch probe status</Description>
-                                      <Mapping>Application.HW.IO.Servo.Axis_Move.In.Touch_probe_status</Mapping>
+                                      <Mapping>Application.HW.IO.Servo.Axis_Move.In.Touch_probe_status.SW</Mapping>
                                     </Parameter>
                                     <Parameter ParameterId="33554441" type="std:DINT">
                                       <Attributes channel="input" />
