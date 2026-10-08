@@ -1,20 +1,6 @@
-# Compiled and build artifacts
-*.pyc
+# Build/Output directories
+analysis/final_build/
+
+# Python compiled files and caches
 __pycache__/
-
-# Dependencies
-venv/
-.venv/
-
-# Editor/IDE files
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# System/Environment files
-.DS_Store
-Thumbs.db
-.env
-.env.local
-*.env.*
+*.pyc
