@@ -246,10 +246,20 @@ class SchemeRenderer:
         self.media_dir = media_dir
         self.rel_map = rel_map
         cs = group.get('coordsize')
-        gx, gy = map(float, cs.split(','))
+        parts = [x for x in cs.split(',') if x.strip() != '']
+        gx, gy = (float(parts[0]), float(parts[1])) if len(parts) >= 2 else (1.0, 1.0)
+        if gx <= 0: gx = 1.0
+        if gy <= 0: gy = gx
         self.gw, self.gh = gx, gy
         origin = group.get('coordorigin')
-        self.ox, self.oy = (map(float, origin.split(',')) if origin else (0.0, 0.0))
+        self.ox, self.oy = 0.0, 0.0
+        if origin:
+            try:
+                op = [float(x) for x in origin.replace(',', ' ').split() if x.strip() != '']
+                if len(op) >= 2: self.ox, self.oy = op[0], op[1]
+                elif len(op) == 1: self.ox = op[0]
+            except ValueError:
+                pass
         self.S = target_width_px / gx     # px per coord unit
         self.W = int(gx * self.S)
         self.H = int(gy * self.S) + 1
@@ -358,10 +368,20 @@ class SchemeRenderer:
         и масштаб этих единиц в pt."""
         cs = sh.get('coordsize')
         org = sh.get('coordorigin')
-        if cs:
-            cx, cy = map(float, cs.split(','))
-            ox, oy = map(float, org.split(',')) if org else (0.0, 0.0)
-            return cx, cy, ox, oy
+        if cs and ',' in cs:
+            try:
+                cx, cy = [float(x) for x in cs.split(',') if x.strip() != ''][:2]
+            except ValueError:
+                return None
+            ox, oy = 0.0, 0.0
+            if org and ',' in org:
+                try:
+                    p = [float(x) for x in org.split(',') if x.strip() != '']
+                    if len(p) >= 2: ox, oy = p[0], p[1]
+                except ValueError:
+                    pass
+            if cx > 0 and cy > 0:
+                return cx, cy, ox, oy
         return None
 
     def draw_shape(self, dr, sh):
