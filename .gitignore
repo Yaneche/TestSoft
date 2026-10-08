@@ -1,1 +1,20 @@
-(empty)
+# Compiled and build artifacts
+*.pyc
+__pycache__/
+
+# Dependencies
+venv/
+.venv/
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# System/Environment files
+.DS_Store
+Thumbs.db
+.env
+.env.local
+*.env.*
