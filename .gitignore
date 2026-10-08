@@ -1,8 +1,1 @@
-# Build/Output directories
-analysis/final_build/
-
-# Python compiled files and caches
-__pycache__/
-*.pyc
-*.~u
-
+(empty)
